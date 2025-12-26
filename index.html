@@ -10,11 +10,11 @@
     <style>
         :root {
             /* ألوان Esri الهوية البصرية */
-            --esri-blue: #0079c1;      /* الأزرق الرسمي */
-            --esri-dark-blue: #005e95; /* أزرق داكن للهوفر */
-            --text-dark: #323232;      /* لون النصوص الرسمي */
-            --text-gray: #595959;      /* لون النصوص الفرعية */
-            --bg-light: #f8f8f8;       /* خلفية رمادية فاتحة جداً للفواصل */
+            --esri-blue: #0079c1;      
+            --esri-dark-blue: #005e95; 
+            --text-dark: #323232;      
+            --text-gray: #595959;      
+            --bg-light: #f8f8f8;       
             --white: #ffffff;
             --border-color: #e0e0e0;
         }
@@ -30,7 +30,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--white);
-            overflow-x: hidden; /* ضروري لمنع الصور الجانبية من توسيع الصفحة */
+            overflow-x: hidden; 
         }
 
         /* --- Global Components --- */
@@ -39,7 +39,7 @@
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
-            z-index: 2; /* لضمان ظهور المحتوى فوق الصور الخلفية */
+            z-index: 5; 
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -50,7 +50,6 @@
             color: var(--text-dark);
         }
 
-        /* تصميم العناوين بنمط Esri */
         .section-title {
             font-size: 2rem;
             margin-bottom: 3rem;
@@ -68,7 +67,6 @@
             background-color: var(--esri-blue);
         }
 
-        /* الأزرار الرسمية */
         .btn-esri {
             display: inline-block;
             background-color: var(--esri-blue);
@@ -76,7 +74,7 @@
             padding: 12px 32px;
             font-size: 1rem;
             font-weight: 500;
-            border-radius: 2px; /* حواف حادة قليلاً */
+            border-radius: 2px;
             transition: background 0.3s ease;
         }
 
@@ -130,14 +128,14 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 600px;
+            height: 650px;
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             color: var(--white);
-            overflow: hidden; /* لاخفاء أجزاء الصور الخارجة */
+            overflow: visible; 
         }
 
         .hero h1 { font-size: 3rem; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
@@ -146,39 +144,45 @@
         /* --- الصور الجانبية (Floating Images) --- */
         .decor-img {
             position: absolute;
-            z-index: 1;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            z-index: 10;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
             transition: transform 0.3s;
+            pointer-events: none;
         }
         
-        /* ضبط أماكن الصور بدقة */
+        /* 1. صورة الوقوف الرسمية (للهيدر) */
         .img-hero {
-            height: 550px;
-            bottom: -50px;
-            right: 5%;
-            z-index: 3;
+            height: 580px;
+            bottom: -80px;
+            right: 2%;
         }
 
+        /* 2. صورة الوقوف الجانبي مع اللابتوب (للمشاريع) */
         .img-portfolio {
-            height: 500px;
-            top: 80px;
-            left: -150px; /* تطل من اليسار */
-        }
-
-        .img-experience {
-            height: 550px;
+            height: 480px;
             top: 50px;
-            right: -120px; /* تطل من اليمين */
+            left: -180px; /* تطل من اليسار */
         }
 
+        /* 3. صورة الجلوس على المكتب (للخبرة) */
+        .img-experience {
+            height: 500px;
+            top: 20px;
+            right: -150px; /* تطل من اليمين */
+        }
+
+        /* 4. صورة الجلوس على الكرسي (للتعليم) */
         .img-footer {
-            height: 450px;
+            height: 420px;
             bottom: 0;
             left: -80px;
+            z-index: 1;
         }
 
         /* --- Sections --- */
-        section { padding: 80px 0; position: relative; }
+        section { padding: 80px 0; position: relative; overflow: hidden; }
+        section.hero { overflow: visible; }
+
         .bg-light { background-color: var(--bg-light); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
 
         /* --- About Grid --- */
@@ -200,13 +204,13 @@
         .info-list li { display: flex; align-items: center; color: var(--text-gray); font-size: 0.95rem; }
         .info-list i { color: var(--esri-blue); margin-right: 10px; width: 20px; }
 
-        /* --- Portfolio Cards (Esri Style) --- */
+        /* --- Portfolio Cards --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             position: relative;
-            z-index: 2;
+            z-index: 6; 
         }
 
         .project-card {
@@ -221,7 +225,7 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--esri-blue); /* لمسة Esri */
+            border-top: 4px solid var(--esri-blue);
         }
 
         .card-header {
@@ -246,11 +250,13 @@
             border: 1px solid #dcebf5;
         }
 
-        /* --- Skills & Languages --- */
+        /* --- Skills --- */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            position: relative;
+            z-index: 6;
         }
 
         .skill-group {
@@ -278,7 +284,6 @@
 
         .skill-item i { margin-right: 10px; color: var(--esri-blue); }
         
-        /* تمييز الفرنسية */
         .highlight-lang {
             color: var(--esri-dark-blue);
             font-weight: 700;
@@ -297,7 +302,7 @@
             padding-left: 20px;
             border-left: 3px solid var(--esri-blue);
             position: relative;
-            z-index: 2;
+            z-index: 6;
         }
 
         .timeline-date { font-weight: 700; color: var(--text-dark); font-size: 1.05rem; }
@@ -307,14 +312,15 @@
 
         /* --- Footer --- */
         footer {
-            background-color: #242424; /* لون فوتر Esri الداكن */
+            background-color: #242424;
             color: var(--white);
             padding: 60px 0 30px;
             position: relative;
-            z-index: 2;
+            z-index: 5;
+            overflow: hidden;
         }
 
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; position: relative; z-index: 6; }
         .footer-col h3 { color: var(--white); margin-bottom: 20px; }
         
         .footer-social a {
@@ -334,7 +340,7 @@
         /* تجاوب للموبايل */
         @media (max-width: 992px) {
             .skills-container { grid-template-columns: 1fr 1fr; }
-            .decor-img { display: none; } /* إخفاء الصور الجانبية في الشاشات الصغيرة */
+            .decor-img { display: none !important; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -365,16 +371,16 @@
 
     <section class="hero">
         <div class="container">
-            <div style="max-width: 800px; position: relative; z-index: 2;">
+            <div style="max-width: 800px; position: relative; z-index: 10;">
                 <h1>PhD Researcher & Geospatial Developer</h1>
-                <p>Specializing in Water Erosion, Spatial Analysis, and WebGIS Solutions. Bridging the gap between academic research and technical innovation.</p>
+                <p>Specializing in Water Erosion, Spatial Analysis, and WebGIS Solutions. [span_0](start_span)Bridging the gap between academic research and technical innovation[span_0](end_span).</p>
                 <div>
                     <a href="#portfolio" class="btn-esri">View Projects</a>
                     <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn-esri btn-outline">Download CV</a>
                 </div>
             </div>
         </div>
-        <img src="944ec018-6934-4223-8513-92d93320b91e.jpeg" class="decor-img img-hero" alt="Zakariyae Standing">
+        <img src="2d9a860c-a7c1-4dbc-89bd-1eda158ec8f1.jpeg" class="decor-img img-hero" alt="Zakariyae Standing">
     </section>
 
     <section id="about" class="container">
@@ -382,18 +388,18 @@
         <div class="about-grid">
             <div class="about-text">
                 <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-dark);">
-                    Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing.
+                    [span_1](start_span)Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing[span_1](end_span).
                 </p>
                 <p style="color: var(--text-gray); margin-bottom: 30px;">
-                    Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows. Dedicated to open-source contribution and scientific research.
+                    Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows. [span_2](start_span)Dedicated to open-source contribution and scientific research[span_2](end_span).
                 </p>
                 
                 <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: var(--esri-blue);">Contact Details</h3>
                 <ul class="info-list">
-                    <li><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda</li>
-                    <li><i class="fas fa-phone"></i> +212 762 785 869</li>
-                    <li><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma</li>
-                    <li><i class="fab fa-github"></i> github.com/Zakariyae-mhj</li>
+                    [span_3](start_span)<li><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda[span_3](end_span)</li>
+                    [span_4](start_span)<li><i class="fas fa-phone"></i> +212 762 785 869[span_4](end_span)</li>
+                    [span_5](start_span)<li><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma[span_5](end_span)</li>
+                    [span_6](start_span)<li><i class="fab fa-github"></i> github.com/Zakariyae-mhj[span_6](end_span)</li>
                 </ul>
             </div>
             <div>
@@ -403,12 +409,12 @@
     </section>
 
     <section id="portfolio" class="bg-light">
-        <div class="container">
-            <img src="9cc5fee2-240f-4fe2-a93d-dbfc9745d068.jpeg" class="decor-img img-portfolio" alt="Zakariyae Sitting">
+        <div class="container" style="position: relative;">
+            <img src="9cc5fee2-240f-4fe2-a93d-dbfc9745d068.jpeg" class="decor-img img-portfolio" alt="Zakariyae Standing Side">
             
             <h2 class="section-title">Geospatial Portfolio</h2>
-            <div style="max-width: 800px; margin-bottom: 40px;">
-                <p>Active development of open-source tools for remote sensing and topographic analysis.</p>
+            <div style="max-width: 800px; margin-bottom: 40px; position: relative; z-index: 6;">
+                [span_7](start_span)<p>Active development of open-source tools for remote sensing and topographic analysis[span_7](end_span).</p>
             </div>
             
             <div class="projects-grid">
@@ -419,11 +425,9 @@
                         <span>(indice_web_Site)</span>
                     </div>
                     <div class="card-body">
-                        <p>Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications.</p>
-                        <ul>
-                            <li><strong>Indices:</strong> MSI, NDVIre, PRI-RE.</li>
-                        </ul>
-                        <span class="tech-tag">HTML/CSS/JS</span>
+                        [span_8](start_span)<p>Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications[span_8](end_span).</p>
+                        [span_9](start_span)<ul><li><strong>Indices:</strong> MSI, NDVIre, PRI-RE[span_9](end_span).</li></ul>
+                        [span_10](start_span)<span class="tech-tag">HTML/CSS/JS[span_10](end_span)</span>
                     </div>
                 </div>
 
@@ -433,10 +437,8 @@
                         <span>(AASTopo & topoPro)</span>
                     </div>
                     <div class="card-body">
-                        <p>Web-based toolkits designed to automate the analysis of topographic data and terrain features extraction.</p>
-                        <ul>
-                            <li><strong>Activity:</strong> +79 commits (Dec 2025).</li>
-                        </ul>
+                        [span_11](start_span)<p>Web-based toolkits designed to automate the analysis of topographic data and terrain features extraction[span_11](end_span).</p>
+                        [span_12](start_span)<ul><li><strong>Activity:</strong> +79 commits (Dec 2025)[span_12](end_span).</li></ul>
                         <span class="tech-tag">WebGIS Automation</span>
                     </div>
                 </div>
@@ -447,8 +449,8 @@
                         <span>(erosion-app)</span>
                     </div>
                     <div class="card-body">
-                        <p>Python-based applications designed to support soil loss calculation and erosion risk modeling for PhD research.</p>
-                        <span class="tech-tag">Python (Geopandas)</span>
+                        [span_13](start_span)<p>Python-based applications designed to support soil loss calculation and erosion risk modeling for PhD research[span_13](end_span).</p>
+                        [span_14](start_span)<span class="tech-tag">Python (Geopandas)[span_14](end_span)</span>
                     </div>
                 </div>
 
@@ -458,8 +460,8 @@
                         <span>(Spi-code)</span>
                     </div>
                     <div class="card-body">
-                        <p>Scripting for the calculation of the Standardized Precipitation Index (SPI) using GEE to monitor drought.</p>
-                        <span class="tech-tag">Google Earth Engine</span>
+                        [span_15](start_span)<p>Scripting for the calculation of the Standardized Precipitation Index (SPI) using GEE to monitor drought[span_15](end_span).</p>
+                        [span_16](start_span)<span class="tech-tag">Google Earth Engine[span_16](end_span)</span>
                     </div>
                 </div>
 
@@ -474,40 +476,40 @@
             
             <div class="skill-group">
                 <h3>Geospatial & Dev</h3>
-                <div class="skill-item"><i class="fas fa-check"></i> ArcGIS Pro, QGIS, MapInfo</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Google Earth Engine, ENVI</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Python (Automation)</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Web Mapping (Leaflet)</div>
+                [span_17](start_span)<div class="skill-item"><i class="fas fa-check"></i> ArcGIS Pro, QGIS, MapInfo[span_17](end_span)</div>
+                [span_18](start_span)<div class="skill-item"><i class="fas fa-check"></i> Google Earth Engine, ENVI[span_18](end_span)</div>
+                [span_19](start_span)<div class="skill-item"><i class="fas fa-check"></i> Python (Automation)[span_19](end_span)</div>
+                [span_20](start_span)<div class="skill-item"><i class="fas fa-check"></i> Web Mapping (HTML/CSS)[span_20](end_span)</div>
             </div>
 
             <div class="skill-group">
                 <h3>Data & Research</h3>
-                <div class="skill-item"><i class="fas fa-check"></i> SPSS, OriginPro, Excel</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Zotero, Mendeley</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Fieldwork (GPS, Surveying)</div>
+                [span_21](start_span)<div class="skill-item"><i class="fas fa-check"></i> SPSS, OriginPro, Excel[span_21](end_span)</div>
+                [span_22](start_span)<div class="skill-item"><i class="fas fa-check"></i> Zotero, Mendeley[span_22](end_span)</div>
+                [span_23](start_span)<div class="skill-item"><i class="fas fa-check"></i> Fieldwork (GPS, Surveying)[span_23](end_span)</div>
             </div>
 
             <div class="skill-group">
                 <h3>Languages</h3>
-                <div class="skill-item"><i class="fas fa-language"></i> Arabic (Native)</div>
-                <div class="skill-item highlight-lang"><i class="fas fa-language"></i> French: Advanced</div>
-                <div class="skill-item"><i class="fas fa-language"></i> English (Technical)</div>
+                [span_24](start_span)<div class="skill-item"><i class="fas fa-language"></i> Arabic (Native)[span_24](end_span)</div>
+                [span_25](start_span)<div class="skill-item highlight-lang"><i class="fas fa-language"></i> French: Advanced[span_25](end_span)</div>
+                [span_26](start_span)<div class="skill-item"><i class="fas fa-language"></i> English (Technical)[span_26](end_span)</div>
             </div>
 
             <div class="skill-group">
                 <h3>Personal Qualities</h3>
-                <div class="skill-item"><i class="fas fa-star"></i> Leadership & Supervision</div>
-                <div class="skill-item"><i class="fas fa-star"></i> Adaptability</div>
-                <div class="skill-item"><i class="fas fa-star"></i> Analytical Thinking</div>
-                <div class="skill-item"><i class="fas fa-star"></i> Communication</div>
+                [span_27](start_span)<div class="skill-item"><i class="fas fa-star"></i> Leadership & Supervision[span_27](end_span)</div>
+                [span_28](start_span)<div class="skill-item"><i class="fas fa-star"></i> Adaptability[span_28](end_span)</div>
+                [span_29](start_span)<div class="skill-item"><i class="fas fa-star"></i> Analytical Thinking[span_29](end_span)</div>
+                [span_30](start_span)<div class="skill-item"><i class="fas fa-star"></i> Communication[span_30](end_span)</div>
             </div>
 
         </div>
     </section>
 
     <section id="experience" class="bg-light">
-        <div class="container">
-            <img src="6f47e622-b70d-4850-b036-e69d174884df.jpeg" class="decor-img img-experience" alt="Zakariyae Standing">
+        <div class="container" style="position: relative;">
+            <img src="6f47e622-b70d-4850-b036-e69d174884df.jpeg" class="decor-img img-experience" alt="Zakariyae Sitting Desk">
 
             <h2 class="section-title">Professional Experience</h2>
 
@@ -517,8 +519,8 @@
                     <h3>Controller (RGPH)</h3>
                     <h4>High Commission for Planning (HCP)</h4>
                     <ul>
-                        <li>Supervised and evaluated field investigators during the General Census.</li>
-                        <li>Verified data quality and reported digital anomalies in real-time.</li>
+                        [span_31](start_span)<li>Supervised and evaluated field investigators during the General Census[span_31](end_span).</li>
+                        [span_32](start_span)<li>Verified data quality and reported digital anomalies in real-time[span_32](end_span).</li>
                     </ul>
                 </div>
             </div>
@@ -529,7 +531,7 @@
                     <h3>Investigator Trainer</h3>
                     <h4>High Commission for Planning (HCP)</h4>
                     <ul>
-                        <li>Delivered intensive training to field staff on survey techniques, digital tools, and data rigor for the national census operation.</li>
+                        [span_33](start_span)<li>Delivered intensive training to field staff on survey techniques and data rigor[span_33](end_span).</li>
                     </ul>
                 </div>
             </div>
@@ -540,10 +542,9 @@
                     <h3>Trainer & Academic Coordinator</h3>
                     <h4>Mohammed First University | Oujda</h4>
                     <ul>
-                        <li><strong>Spatial Statistics:</strong> Trained students on using SPSS.</li>
-                        <li><strong>Hydrology:</strong> Workshops on groundwater mapping using GIS/GPS.</li>
-                        <li><strong>Research Tools:</strong> Training on Zotero, Mendeley.</li>
-                        <li><strong>Fieldwork:</strong> Practical training on map reading.</li>
+                        [span_34](start_span)<li><strong>Spatial Statistics:</strong> Trained students on using SPSS[span_34](end_span).</li>
+                        [span_35](start_span)<li><strong>Hydrology:</strong> Workshops on groundwater mapping using GIS/GPS[span_35](end_span).</li>
+                        [span_36](start_span)<li><strong>Research Tools:</strong> Training on Zotero, Mendeley[span_36](end_span).</li>
                     </ul>
                 </div>
             </div>
@@ -554,8 +555,8 @@
                     <h3>Team Leader & Trainer</h3>
                     <h4>Moroccan Red Crescent | Fès</h4>
                     <ul>
-                        <li>Developed evacuation plans and risk awareness sessions.</li>
-                        <li>Trained personnel in over 20 schools on first aid.</li>
+                        [span_37](start_span)<li>Developed evacuation plans and risk awareness sessions[span_37](end_span).</li>
+                        [span_38](start_span)<li>Trained personnel in over 20 schools on first aid[span_38](end_span).</li>
                     </ul>
                 </div>
             </div>
@@ -564,7 +565,7 @@
     </section>
 
     <section id="education" class="container">
-        <img src="2d9a860c-a7c1-4dbc-89bd-1eda158ec8f1.jpeg" class="decor-img img-footer" alt="Zakariyae Sitting">
+        <img src="944ec018-6934-4223-8513-92d93320b91e.jpeg" class="decor-img img-footer" alt="Zakariyae Sitting Chair">
 
         <h2 class="section-title">Education</h2>
         
@@ -572,7 +573,7 @@
             <div class="timeline-date">2023 - Present</div>
             <div class="timeline-content">
                 <h3>PhD in Geography (In Progress)</h3>
-                <h4>Mohammed First University, Oujda</h4>
+                [span_39](start_span)<h4>Mohammed First University, Oujda[span_39](end_span)</h4>
                 <ul><li>Thesis Topic: Water Erosion (L'érosion hydrique).</li></ul>
             </div>
         </div>
@@ -581,7 +582,7 @@
             <div class="timeline-date">2021 - 2023</div>
             <div class="timeline-content">
                 <h3>Master in Geomatics</h3>
-                <h4>Mohammed First University, Oujda</h4>
+                [span_40](start_span)<h4>Mohammed First University, Oujda[span_40](end_span)</h4>
             </div>
         </div>
 
@@ -589,7 +590,7 @@
             <div class="timeline-date">2017 - 2020</div>
             <div class="timeline-content">
                 <h3>Bachelor (Licence) in Geography</h3>
-                <h4>Sidi Mohammed Ben Abdellah University, Fès</h4>
+                [span_41](start_span)<h4>Sidi Mohammed Ben Abdellah University, Fès[span_41](end_span)</h4>
             </div>
         </div>
     </section>
