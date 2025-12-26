@@ -76,7 +76,7 @@
             padding: 12px 30px;
             font-size: 1rem;
             font-weight: 500;
-            border-radius: 2px; /* حواف حادة قليلاً مثل ستايل الشركات */
+            border-radius: 2px;
             transition: background 0.3s ease;
         }
 
@@ -145,7 +145,8 @@
         .hero {
             position: relative;
             height: 600px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+            /* صورة خلفية تقنية تعبر عن GIS */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -176,7 +177,6 @@
             padding: 80px 0;
         }
 
-        /* Gray Background Section (Alternating) */
         .bg-light {
             background-color: var(--bg-light);
             border-top: 1px solid var(--border-color);
@@ -216,7 +216,7 @@
             margin-right: 10px;
         }
 
-        /* --- Portfolio Cards (Esri Style) --- */
+        /* --- Portfolio Cards --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -453,8 +453,8 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>PhD Researcher & Geospatial Developer [cite: 2]</h1>
-            <p>PhD candidate in Geography specializing in water erosion and spatial analysis. Bridging the gap between academic research and technical innovation[cite: 3, 4].</p>
+            <h1>PhD Researcher & Geospatial Developer</h1>
+            <p>PhD candidate in Geography specializing in water erosion and spatial analysis. Bridging the gap between academic research and technical innovation.</p>
             <div>
                 <a href="#portfolio" class="btn-esri">View Projects</a>
                 <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn-esri btn-outline">Download CV</a>
@@ -467,18 +467,18 @@
         <div class="about-grid">
             <div class="about-text">
                 <p style="font-size: 1.1rem; margin-bottom: 20px;">
-                    Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing[cite: 5].
+                    Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing.
                 </p>
                 <p style="color: var(--text-gray); margin-bottom: 20px;">
-                    Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows. [cite: 6]
+                    Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows.
                 </p>
                 
                 <h3 style="font-size: 1.2rem; margin-top: 30px;">Contact Information</h3>
                 <ul class="info-list">
-                    <li><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco [cite: 10]</li>
-                    <li><i class="fas fa-phone"></i> +212 762 785 869 [cite: 7]</li>
-                    <li><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma [cite: 8]</li>
-                    <li><i class="fab fa-github"></i> github.com/Zakariyae-mhj [cite: 9]</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco</li>
+                    <li><i class="fas fa-phone"></i> +212 762 785 869</li>
+                    <li><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma</li>
+                    <li><i class="fab fa-github"></i> github.com/Zakariyae-mhj</li>
                 </ul>
             </div>
             <div class="profile-img-container">
@@ -490,60 +490,60 @@
     <section id="portfolio" class="bg-light">
         <div class="container">
             <h2 class="section-title">Geospatial Development Portfolio</h2>
-            <p style="margin-bottom: 40px; color: var(--text-gray);">Active development of open-source tools for remote sensing and topographic analysis. [cite: 23]</p>
+            <p style="margin-bottom: 40px; color: var(--text-gray);">Active development of open-source tools for remote sensing and topographic analysis.</p>
             
             <div class="projects-grid">
                 
                 <div class="project-card">
                     <div class="card-header">
                         <h3>Web-Based Spectral Indices</h3>
-                        <span>(indice_web_Site) [cite: 24]</span>
+                        <span>(indice_web_Site)</span>
                     </div>
                     <div class="card-body">
-                        <p>Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications. [cite: 25]</p>
+                        <p>Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications.</p>
                         <ul>
-                            <li><strong>Custom Indices:</strong> Created/deployed code for MSI, NDVIre, PRI-RE, and Composite-Index models. [cite: 26]</li>
+                            <li><strong>Custom Indices:</strong> Created/deployed code for MSI, NDVIre, PRI-RE, and Composite-Index models.</li>
                         </ul>
-                        <span class="tech-tag">HTML, CSS, JavaScript [cite: 27]</span>
+                        <span class="tech-tag">HTML, CSS, JavaScript</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-header">
                         <h3>Topographic Analysis Suite</h3>
-                        <span>(AASTopo & topoPro) [cite: 28]</span>
+                        <span>(AASTopo & topoPro)</span>
                     </div>
                     <div class="card-body">
-                        <p>Built web-based toolkits designed to automate the analysis of topographic data. [cite: 29]</p>
+                        <p>Built web-based toolkits designed to automate the analysis of topographic data.</p>
                         <ul>
-                            <li><strong>Key Features:</strong> Automated extraction of terrain features, slope analysis, and geomorphological data processing. [cite: 30]</li>
+                            <li><strong>Key Features:</strong> Automated extraction of terrain features, slope analysis, and geomorphological data processing.</li>
                         </ul>
-                        <span class="tech-tag">High Activity: +79 commits (Dec 2025) [cite: 31]</span>
+                        <span class="tech-tag">High Activity: +79 commits (Dec 2025)</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-header">
                         <h3>Erosion Modeling & Analysis</h3>
-                        <span>(erosion-app & My-Geo-App) [cite: 32]</span>
+                        <span>(erosion-app & My-Geo-App)</span>
                     </div>
                     <div class="card-body">
-                        <p>Python-based applications designed to support the calculation of soil loss and erosion risk modeling (aligned with PhD research). [cite: 32]</p>
+                        <p>Python-based applications designed to support the calculation of soil loss and erosion risk modeling (aligned with PhD research).</p>
                         <ul>
-                            <li><strong>Functionality:</strong> Automates data inputs for erosion models (likely RUSLE) to streamline water erosion assessment in Moulouya basin. [cite: 33]</li>
+                            <li><strong>Functionality:</strong> Automates data inputs for erosion models (likely RUSLE) to streamline water erosion assessment in Moulouya basin.</li>
                         </ul>
-                        <span class="tech-tag">Python, Geoprocessing libraries [cite: 34]</span>
+                        <span class="tech-tag">Python, Geoprocessing libraries</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-header">
                         <h3>Climate Analysis Tools</h3>
-                        <span>(Spi-code) [cite: 59]</span>
+                        <span>(Spi-code)</span>
                     </div>
                     <div class="card-body">
-                        <p>Scripting for the calculation of the Standardized Precipitation Index (SPI) to monitor drought and climatic variations over time. [cite: 60]</p>
-                        <span class="tech-tag">Google Earth Engine (GEE) [cite: 67]</span>
+                        <p>Scripting for the calculation of the Standardized Precipitation Index (SPI) to monitor drought and climatic variations over time.</p>
+                        <span class="tech-tag">Google Earth Engine (GEE)</span>
                     </div>
                 </div>
 
@@ -557,25 +557,25 @@
         <div class="skills-container">
             <div class="skill-group">
                 <h3>Geospatial & Dev</h3>
-                <div class="skill-item"><i class="fas fa-check"></i> ArcGIS Pro, QGIS, MapInfo [cite: 37]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Google Earth Engine, ENVI [cite: 38, 39]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Python (Automation), HTML/CSS [cite: 40]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> WebGIS, GitHub Pages [cite: 41]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> ArcGIS Pro, QGIS, MapInfo</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Google Earth Engine, ENVI</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Python (Automation), HTML/CSS</div>
+                <div class="skill-item"><i class="fas fa-check"></i> WebGIS, GitHub Pages</div>
             </div>
 
             <div class="skill-group">
                 <h3>Data & Research</h3>
-                <div class="skill-item"><i class="fas fa-check"></i> SPSS, OriginPro, Excel [cite: 43]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Zotero, Mendeley [cite: 44]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Fieldwork: GPS, Topographic Surveying [cite: 45]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> SPSS, OriginPro, Excel</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Zotero, Mendeley</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Fieldwork: GPS, Topographic Surveying</div>
             </div>
 
             <div class="skill-group">
                 <h3>Languages & Qualities</h3>
-                <div class="skill-item"><i class="fas fa-check"></i> Arabic (Native), French (Advanced) [cite: 54, 55]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> English (Technical/Reading) [cite: 56]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Leadership & Team Supervision [cite: 48]</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Adaptability (GIS to Coding) [cite: 49]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Arabic (Native), French (Advanced)</div>
+                <div class="skill-item"><i class="fas fa-check"></i> English (Technical/Reading)</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Leadership & Team Supervision</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Adaptability (GIS to Coding)</div>
             </div>
         </div>
     </section>
@@ -588,10 +588,10 @@
                 <div class="timeline-date">Sep 2024</div>
                 <div class="timeline-content">
                     <h3>Controller (RGPH)</h3>
-                    <h4>High Commission for Planning (HCP) | Morocco [cite: 73, 74]</h4>
+                    <h4>High Commission for Planning (HCP) | Morocco</h4>
                     <ul>
-                        <li>Supervised and evaluated field investigators during the General Census of Population and Housing. [cite: 75]</li>
-                        <li>Verified data quality and reported digital anomalies in real-time. [cite: 76]</li>
+                        <li>Supervised and evaluated field investigators during the General Census of Population and Housing.</li>
+                        <li>Verified data quality and reported digital anomalies in real-time.</li>
                     </ul>
                 </div>
             </div>
@@ -600,9 +600,9 @@
                 <div class="timeline-date">Aug 2024</div>
                 <div class="timeline-content">
                     <h3>Investigator Trainer</h3>
-                    <h4>High Commission for Planning (HCP) [cite: 77]</h4>
+                    <h4>High Commission for Planning (HCP)</h4>
                     <ul>
-                        <li>Delivered intensive training to field staff on survey techniques, digital tools, and data rigor for the national census operation. [cite: 78-80]</li>
+                        <li>Delivered intensive training to field staff on survey techniques, digital tools, and data rigor for the national census operation.</li>
                     </ul>
                 </div>
             </div>
@@ -611,12 +611,12 @@
                 <div class="timeline-date">2023 - Present</div>
                 <div class="timeline-content">
                     <h3>Trainer & Academic Coordinator</h3>
-                    <h4>Mohammed First University | Oujda [cite: 81, 82]</h4>
+                    <h4>Mohammed First University | Oujda</h4>
                     <ul>
-                        <li><strong>Spatial Statistics:</strong> Trained students on using SPSS for territorial data analysis. [cite: 83]</li>
-                        <li><strong>Hydrology:</strong> Coordinated workshops on groundwater mapping using GIS and GPS probes. [cite: 84]</li>
-                        <li><strong>Research Tools:</strong> Training on Zotero, Mendeley, Google Scholar. [cite: 85]</li>
-                        <li><strong>Fieldwork:</strong> Led practical training on hydrological analysis and topographic map reading. [cite: 86]</li>
+                        <li><strong>Spatial Statistics:</strong> Trained students on using SPSS for territorial data analysis.</li>
+                        <li><strong>Hydrology:</strong> Coordinated workshops on groundwater mapping using GIS and GPS probes.</li>
+                        <li><strong>Research Tools:</strong> Training on Zotero, Mendeley, Google Scholar.</li>
+                        <li><strong>Fieldwork:</strong> Led practical training on hydrological analysis and topographic map reading.</li>
                     </ul>
                 </div>
             </div>
@@ -625,10 +625,10 @@
                 <div class="timeline-date">2019</div>
                 <div class="timeline-content">
                     <h3>Team Leader & Trainer</h3>
-                    <h4>Moroccan Red Crescent | Fès [cite: 87, 88]</h4>
+                    <h4>Moroccan Red Crescent | Fès</h4>
                     <ul>
-                        <li>Developed evacuation plans and conducted natural risk awareness sessions. [cite: 89]</li>
-                        <li>Trained personnel in over 20 schools on first aid procedures. [cite: 90]</li>
+                        <li>Developed evacuation plans and conducted natural risk awareness sessions.</li>
+                        <li>Trained personnel in over 20 schools on first aid procedures.</li>
                     </ul>
                 </div>
             </div>
@@ -642,10 +642,10 @@
         <div class="timeline-item">
             <div class="timeline-date">2023 - Present</div>
             <div class="timeline-content">
-                <h3>PhD in Geography (In Progress) [cite: 12]</h3>
-                <h4>Mohammed First University, Oujda [cite: 13]</h4>
+                <h3>PhD in Geography (In Progress)</h3>
+                <h4>Mohammed First University, Oujda</h4>
                 <ul>
-                    <li>Thesis Topic: Water Erosion (L'érosion hydrique). [cite: 15]</li>
+                    <li>Thesis Topic: Water Erosion (L'érosion hydrique).</li>
                 </ul>
             </div>
         </div>
@@ -653,16 +653,16 @@
         <div class="timeline-item">
             <div class="timeline-date">2021 - 2023</div>
             <div class="timeline-content">
-                <h3>Master in Geomatics and Territory Management [cite: 16]</h3>
-                <h4>Mohammed First University, Oujda [cite: 17]</h4>
+                <h3>Master in Geomatics and Territory Management</h3>
+                <h4>Mohammed First University, Oujda</h4>
             </div>
         </div>
 
         <div class="timeline-item">
             <div class="timeline-date">2017 - 2020</div>
             <div class="timeline-content">
-                <h3>Bachelor (Licence) in Geography [cite: 19]</h3>
-                <h4>Sidi Mohammed Ben Abdellah University, Fès [cite: 20]</h4>
+                <h3>Bachelor (Licence) in Geography</h3>
+                <h4>Sidi Mohammed Ben Abdellah University, Fès</h4>
             </div>
         </div>
     </section>
@@ -673,16 +673,16 @@
                 <div class="footer-col">
                     <h3>Zakariyae ElMahjoubi</h3>
                     <p style="color: #b3b3b3; max-width: 400px;">
-                        Passionate about bridging the gap between academic research and technical innovation in Geospatial Science. [cite: 4]
+                        Passionate about bridging the gap between academic research and technical innovation in Geospatial Science.
                     </p>
                 </div>
                 <div class="footer-col">
                     <h3>Get in Touch</h3>
                     <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco [cite: 10]
+                        <i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma [cite: 8]
+                        <i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/Zakariyae-mhj"><i class="fab fa-github"></i></a>
