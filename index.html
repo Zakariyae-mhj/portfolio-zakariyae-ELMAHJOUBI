@@ -145,7 +145,6 @@
         .hero {
             position: relative;
             height: 600px;
-            /* صورة خلفية تقنية تعبر عن GIS */
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -295,7 +294,7 @@
         /* --- Skills Section --- */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for 4 columns */
             gap: 40px;
         }
 
@@ -304,6 +303,7 @@
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-size: 1.2rem;
+            color: var(--esri-dark-blue);
         }
 
         .skill-item {
@@ -429,6 +429,9 @@
                 padding-left: 15px;
                 border-left-width: 3px;
             }
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -552,9 +555,10 @@
     </section>
 
     <section id="skills" class="container">
-        <h2 class="section-title">Technical Skills & Qualities</h2>
+        <h2 class="section-title">Technical Skills & Capabilities</h2>
         
         <div class="skills-container">
+            
             <div class="skill-group">
                 <h3>Geospatial & Dev</h3>
                 <div class="skill-item"><i class="fas fa-check"></i> ArcGIS Pro, QGIS, MapInfo</div>
@@ -567,16 +571,25 @@
                 <h3>Data & Research</h3>
                 <div class="skill-item"><i class="fas fa-check"></i> SPSS, OriginPro, Excel</div>
                 <div class="skill-item"><i class="fas fa-check"></i> Zotero, Mendeley</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Fieldwork: GPS, Topographic Surveying</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Fieldwork: GPS, Surveying</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Database Structuring</div>
             </div>
 
             <div class="skill-group">
-                <h3>Languages & Qualities</h3>
-                <div class="skill-item"><i class="fas fa-check"></i> Arabic (Native), French (Advanced)</div>
-                <div class="skill-item"><i class="fas fa-check"></i> English (Technical/Reading)</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Leadership & Team Supervision</div>
-                <div class="skill-item"><i class="fas fa-check"></i> Adaptability (GIS to Coding)</div>
+                <h3>Languages</h3>
+                <div class="skill-item"><i class="fas fa-language"></i> Arabic (Native)</div>
+                <div class="skill-item"><i class="fas fa-language"></i> <strong>French (Advanced)</strong></div>
+                <div class="skill-item"><i class="fas fa-language"></i> English (Technical)</div>
             </div>
+
+            <div class="skill-group">
+                <h3>Personal Qualities</h3>
+                <div class="skill-item"><i class="fas fa-star"></i> Leadership & Supervision</div>
+                <div class="skill-item"><i class="fas fa-star"></i> Adaptability (Fast Learner)</div>
+                <div class="skill-item"><i class="fas fa-star"></i> Analytical & Problem Solving</div>
+                <div class="skill-item"><i class="fas fa-star"></i> Communication & Reporting</div>
+            </div>
+
         </div>
     </section>
 
