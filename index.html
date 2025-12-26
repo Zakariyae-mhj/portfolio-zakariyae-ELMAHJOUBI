@@ -4,21 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zakariyae ElMahjoubi | Geospatial Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* لوحة ألوان جيومكانية عصرية */
-            --primary-bg: #0f1c2e; /* أزرق ليلي عميق - مثل صور الأقمار الصناعية ليلاً */
-            --secondary-accent: #10b981; /* أخضر زمردي تقني - يرمز لتحليل البيانات والغطاء النباتي */
-            --tertiary-earth: #d97706; /* لمسة برتقالي ترابي خفيفة */
-            --text-dark: #1e293b;
-            --text-light: #94a3b8;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            /* نمط خطوط الكونتور للخلفيات */
-            --topo-pattern: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 C 20 10, 40 10, 60 0 C 80 -10, 100 10, 120 20' stroke='%2394a3b8' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M0 20 C 20 30, 40 30, 60 20 C 80 10, 100 30, 120 40' stroke='%2394a3b8' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M0 40 C 20 50, 40 50, 60 40 C 80 30, 100 50, 120 60' stroke='%2394a3b8' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M0 60 C 20 70, 40 70, 60 60 C 80 50, 100 70, 120 80' stroke='%2394a3b8' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M0 80 C 20 90, 40 90, 60 80 C 80 70, 100 90, 120 100' stroke='%2394a3b8' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
+            --primary-color: #0284c7; /* أزرق سماوي قوي */
+            --dark-color: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.85); /* لون الزجاج الشفاف */
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-main: #334155;
+            --text-light: #64748b;
         }
 
         * {
@@ -31,22 +27,34 @@
 
         body {
             line-height: 1.7;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            background-image: var(--topo-pattern); /* إضافة نمط الكونتور الخفيف للجسم بالكامل */
-            background-attachment: fixed;
+            color: var(--text-main);
+            /* صورة الخلفية الثابتة - نمط خرائط */
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* يجعل الخلفية ثابتة أثناء التمرير */
+            background-repeat: no-repeat;
+        }
+
+        /* طبقة تغطية لتخفيف حدة الصورة الخلفية */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(241, 245, 249, 0.85); /* لون أبيض خفيف يغطي الصورة */
+            z-index: -1;
         }
 
         /* تنسيق الهيدر */
         header {
-            background-color: rgba(15, 28, 46, 0.95); /* خلفية داكنة نصف شفافة */
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px); /* تغبيش الخلفية */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -59,504 +67,317 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--white);
-            display: flex;
-            align-items: center;
+            color: var(--dark-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .logo i {
-            color: var(--secondary-accent);
-            margin-right: 10px;
+        .logo span {
+            color: var(--primary-color);
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-light);
+            color: var(--text-main);
             margin-left: 2rem;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            position: relative;
+            font-size: 0.95rem;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--secondary-accent);
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary-accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        /* تأثير الزجاج للكروت */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
         }
 
         /* قسم البداية Hero Section */
         .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10rem 5% 6rem;
-            /* خلفية متدرجة توحي بالكرة الأرضية الرقمية */
-            background: linear-gradient(135deg, var(--primary-bg) 0%, #1a2f4b 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* إضافة تأثيرات بصرية للخلفية */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: var(--topo-pattern);
-            opacity: 0.2;
-            pointer-events: none;
+            max-width: 1100px;
+            width: 100%;
+            padding: 3rem;
         }
 
         .hero-text {
             flex: 1;
-            max-width: 600px;
-            z-index: 2;
+            padding-right: 2rem;
         }
 
-        .hero-text h4 {
-            color: var(--secondary-accent);
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
+        .role-badge {
             display: inline-block;
-            background: rgba(16, 185, 129, 0.1);
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--primary-color);
             padding: 5px 15px;
-            border-radius: 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(2, 132, 199, 0.2);
         }
 
         .hero-text h1 {
             font-size: 3rem;
             line-height: 1.2;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--white), var(--secondary-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--dark-color);
         }
 
         .hero-text h2 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 1.5rem;
             font-weight: 400;
         }
 
         .hero-text p {
-            margin-bottom: 2.5rem;
-            color: #cbd5e1;
-            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            font-size: 1rem;
+            max-width: 500px;
         }
 
         .btn {
             display: inline-block;
-            background: linear-gradient(45deg, var(--secondary-accent), #059669);
-            color: var(--white);
-            padding: 0.9rem 2rem;
-            border-radius: 30px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--secondary-accent);
-            color: var(--secondary-accent);
-            box-shadow: none;
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background: var(--secondary-accent);
-            color: var(--white);
-        }
-
-        .hero-img-container {
+        .hero-img {
             flex: 1;
             display: flex;
             justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* دائرة خلف الصورة */
-        .hero-img-container::before {
-            content: '';
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            background: var(--secondary-accent);
-            opacity: 0.1;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            filter: blur(50px);
         }
 
         .hero-img img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+            width: 320px;
+            height: 320px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* شكل عضوي جميل */
             object-fit: cover;
-            border: 4px solid var(--secondary-accent);
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
-            position: relative;
+            border: 5px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: morph 8s ease-in-out infinite;
         }
 
-        /* الأقسام العامة */
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        /* الأقسام */
         section {
             padding: 6rem 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
-        /* قسم بخلية بيضاء صريحة */
-        .section-white {
-            background-color: var(--white);
-            box-shadow: 0 0 20px rgba(0,0,0,0.03);
-            border-radius: 20px;
-            margin: 4rem auto;
-            padding: 4rem 5%;
-        }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary-bg);
-            margin-bottom: 4rem;
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
             position: relative;
-            font-weight: 700;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--secondary-accent), transparent);
-            margin: 0.8rem auto;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            margin-top: 5px;
             border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-top: -3rem;
-            margin-bottom: 4rem;
+            opacity: 0.5;
         }
 
-        /* قسم المشاريع Portfolio */
+        /* شبكة المشاريع */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            border-top: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 0;
-            background: linear-gradient(to bottom, rgba(16, 185, 129, 0.05), transparent);
-            transition: height 0.4s ease;
-            z-index: -1;
+            padding: 2rem;
+            transition: transform 0.3s;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            border-top: 3px solid var(--secondary-accent);
-            box-shadow: 0 20px 40px rgba(15, 28, 46, 0.1);
-        }
-        
-        .project-card:hover::before {
-            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        .project-card i.card-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-accent);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.1);
-            padding: 15px;
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(2, 132, 199, 0.1);
             border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
         }
 
         .project-card h3 {
             margin-bottom: 1rem;
-            color: var(--primary-bg);
-            font-size: 1.3rem;
-        }
-        
-        .project-card p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
+            color: var(--dark-color);
         }
 
-        .tech-stack {
-            margin-top: 1.5rem;
+        .tags {
+            margin-top: 1rem;
             display: flex;
+            gap: 0.5rem;
             flex-wrap: wrap;
-            gap: 8px;
         }
 
-        .tech-tag {
-            background: var(--bg-light);
-            color: var(--primary-bg);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid #e2e8f0;
+        .tag {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            background: #f1f5f9;
+            border-radius: 15px;
+            color: var(--text-light);
         }
 
-        /* قسم المهارات Skills */
-        .skills-container {
+        /* المهارات */
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .skill-box {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(16, 185, 129, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .skill-box:hover {
-             border-color: var(--secondary-accent);
-             box-shadow: 0 5px 15px rgba(16, 185, 129, 0.1);
+            gap: 2rem;
         }
 
-        .skill-box h3 {
+        .skill-category h3 {
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
-            color: var(--primary-bg);
-            display: flex;
-            align-items: center;
-        }
-        
-        .skill-box h3 i {
-            color: var(--secondary-accent);
-            margin-right: 10px;
-        }
-
-        .skill-list li {
-            list-style: none;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .skill-list i.fa-check {
-            margin-right: 12px;
-            color: var(--secondary-accent);
-            background: rgba(16, 185, 129, 0.1);
-            padding: 5px;
-            border-radius: 50%;
-            font-size: 0.8rem;
-        }
-
-        /* قسم الخبرة Experience */
-        .timeline {
-            border-left: 3px solid rgba(16, 185, 129, 0.3);
-            padding-left: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.1rem;
-            top: 5px;
-            width: 18px;
-            height: 18px;
-            background: var(--white);
-            border: 4px solid var(--secondary-accent);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
-        }
-
-        .timeline-date {
-            font-size: 0.9rem;
-            color: var(--secondary-accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.08);
-            padding: 2px 10px;
-            border-radius: 10px;
-        }
-        
-        .timeline-item h3 {
-            color: var(--primary-bg);
             font-size: 1.3rem;
         }
-        
-        .timeline-item h4 {
-            color: var(--text-light);
-            font-weight: 500;
+
+        .skill-item {
+            display: flex;
+            align-items: center;
             margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.6);
+            border-radius: 10px;
         }
 
-        /* قسم التواصل Footer */
-        footer {
-            background-color: var(--primary-bg);
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 2rem 2rem;
+        .skill-item i {
+            margin-right: 15px;
+            color: var(--text-light);
+        }
+
+        /* الخبرة */
+        .timeline-item {
+            padding: 2rem;
+            margin-bottom: 2rem;
             position: relative;
+            border-left: 4px solid var(--primary-color);
         }
         
-        /* تأثير منحنى في أعلى الفوتر */
-        footer::before {
+        .timeline-item::after {
             content: '';
             position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: var(--primary-bg);
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            left: -10px;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
         }
 
-        .footer-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-content p {
-             color: #cbd5e1;
-             max-width: 500px;
-             margin: 0 auto 2.5rem;
+        .exp-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            margin-top: 4rem;
         }
 
-        .social-links a {
-            color: var(--white);
-            font-size: 1.2rem;
+        .social-icons {
+            margin-bottom: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
             width: 45px;
             height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
+            background: #fff;
             border-radius: 50%;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary-accent);
-            color: var(--white);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
-        }
-        
-        .contact-info-item {
-            display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            color: #cbd5e1;
-        }
-        
-        .contact-info-item i {
-            color: var(--secondary-accent);
-            margin-right: 10px;
-        }
-
-        .copyright {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: var(--text-light);
+            color: var(--dark-color);
+            margin: 0 5px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            text-decoration: none;
         }
 
-        /* للهواتف Mobile */
+        .social-icons a:hover {
+            background: var(--primary-color);
+            color: #fff;
+            transform: translateY(-5px);
+        }
+
+        /* موبايل */
         @media (max-width: 768px) {
-            .hero {
+            .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 8rem;
-                padding-bottom: 4rem;
+                padding: 1rem;
             }
-            
             .hero-text {
-                margin-top: 3rem;
+                padding-right: 0;
+                margin-top: 2rem;
             }
-            
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                margin: 10px 0;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-            
             .nav-links {
-                display: none; /* يمكن إضافة قائمة منسدلة (همبرغر) لاحقاً */
-            }
-            
-            .section-white {
-                padding: 3rem 1.5rem;
-                margin: 2rem 0;
+                display: none;
             }
         }
     </style>
@@ -565,9 +386,7 @@
 
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-layer-group"></i> Z.ElMahjoubi
-            </div>
+            <div class="logo">Zakariyae<span>.Geo</span></div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#portfolio">Portfolio</a>
@@ -579,22 +398,18 @@
     </header>
 
     <section class="hero" id="about">
-        <div class="hero-text">
-            <h4>GEOSPATIAL DEVELOPER & RESEARCHER</h4>
-            <h1>Zakariyae ElMahjoubi</h1>
-            <h2>Bridging Geography with Code & Innovation</h2>
-            <p>
-                PhD candidate specializing in water erosion and spatial analysis. 
-                I transform complex geographical data into actionable insights using Python, GEE, and WebGIS.
-            </p>
-            <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn">
-                <i class="fas fa-download" style="margin-right: 8px;"></i> Download CV
-            </a>
-            <a href="#portfolio" class="btn btn-outline">
-                View My Work
-            </a>
-        </div>
-        <div class="hero-img-container">
+        <div class="glass-card hero-container">
+            <div class="hero-text">
+                <span class="role-badge">PhD Researcher & Developer</span>
+                <h1>Zakariyae ElMahjoubi</h1>
+                <h2>Specialized in Spatial Analysis & Water Erosion</h2>
+                <p>
+                    From GIS Analyst to Geospatial Developer. [cite_start]I build open-source tools for remote sensing, topographic analysis, and automate complex workflows[cite: 5].
+                </p>
+                <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn">
+                    Download CV <i class="fas fa-download"></i>
+                </a>
+            </div>
             <div class="hero-img">
                 <img src="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/Gemini_Generated_Image_dl7agrdl7agrdl7a.png?raw=true" alt="Zakariyae ElMahjoubi">
             </div>
@@ -602,146 +417,108 @@
     </section>
 
     <section id="portfolio">
-        <h2 class="section-title">Geospatial Portfolio</h2>
-        <p class="section-subtitle">Featured projects bridging academia and technical development</p>
-        
+        <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
             
-            <div class="project-card">
-                <i class="fas fa-satellite-dish card-icon"></i>
+            <div class="glass-card project-card">
+                <div class="icon-box"><i class="fas fa-satellite"></i></div>
                 <h3>Web-Based Spectral Indices</h3>
-                <p>Developed a responsive web interface to calculate and visualize advanced spectral indices (MSI, NDVIre, PRI-RE) for remote sensing applications.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Remote Sensing</span>
-                    <span class="tech-tag">WebGIS</span>
+                [cite_start]<p>A responsive platform to calculate indices like MSI, NDVIre, and PRI-RE for remote sensing applications[cite: 24, 25].</p>
+                <div class="tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Remote Sensing</span>
                 </div>
             </div>
 
-            <div class="project-card">
-                <i class="fas fa-mountain card-icon"></i>
+            <div class="glass-card project-card">
+                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
                 <h3>Topographic Analysis Suite</h3>
-                <p>Built web-based toolkits (AASTopo & topoPro) designed to automate the analysis of topographic data, slope, and geomorphological processing.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python Automation</span>
-                    <span class="tech-tag">Terrain Analysis</span>
-                    <span class="tech-tag">GIS</span>
+                [cite_start]<p>Web-based toolkits (AASTopo & topoPro) for automating terrain feature extraction and slope analysis[cite: 28, 30].</p>
+                <div class="tags">
+                    <span class="tag">Automation</span>
+                    <span class="tag">WebGIS</span>
                 </div>
             </div>
 
-            <div class="project-card">
-                <i class="fas fa-water card-icon"></i>
+            <div class="glass-card project-card">
+                <div class="icon-box"><i class="fas fa-mountain"></i></div>
                 <h3>Erosion Modeling (RUSLE)</h3>
-                <p>Python-based applications designed to support soil loss calculation and erosion risk modeling in the Moulouya basin (PhD Research).</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python (Geopandas)</span>
-                    <span class="tech-tag">Spatial Modeling</span>
-                    <span class="tech-tag">Research</span>
+                [cite_start]<p>Python tools for soil loss calculation and erosion risk modeling in the Moulouya basin[cite: 32, 33].</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">PhD Research</span>
                 </div>
             </div>
 
-             <div class="project-card">
-                <i class="fas fa-cloud-sun-rain card-icon"></i>
-                <h3>Climate Analysis (SPI) Engine</h3>
-                <p>Scripting for the calculation of the Standardized Precipitation Index (SPI) using GEE to monitor drought and climatic variations globally.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Google Earth Engine</span>
-                    <span class="tech-tag">Big Data</span>
-                    <span class="tech-tag">Climate Change</span>
+             <div class="glass-card project-card">
+                <div class="icon-box"><i class="fas fa-cloud-rain"></i></div>
+                <h3>SPI Climate Analysis</h3>
+                [cite_start]<p>Google Earth Engine scripts for Standardized Precipitation Index calculation to monitor drought[cite: 59, 60].</p>
+                <div class="tags">
+                    <span class="tag">GEE</span>
+                    <span class="tag">Climate</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section id="skills" class="section-white">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-container">
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
             
-            <div class="skill-box">
-                <h3><i class="fas fa-code"></i> Geospatial Dev & Scripting</h3>
-                <ul class="skill-list">
-                    <li><i class="fas fa-check"></i> Python (ArcPy, Geopandas)</li>
-                    <li><i class="fas fa-check"></i> Google Earth Engine (JS API)</li>
-                    <li><i class="fas fa-check"></i> Web Mapping (Leaflet/Mapbox)</li>
-                    <li><i class="fas fa-check"></i> HTML5 / CSS3 / JS</li>
-                </ul>
+            <div class="glass-card skill-category" style="padding: 2rem;">
+                <h3>Geospatial Development</h3>
+                <div class="skill-item"><i class="fab fa-python"></i> Python (Geoprocessing Automation)</div>
+                <div class="skill-item"><i class="fas fa-globe"></i> Google Earth Engine (GEE)</div>
+                <div class="skill-item"><i class="fas fa-code"></i> HTML/CSS & Web Mapping</div>
             </div>
 
-            <div class="skill-box">
-                <h3><i class="fas fa-map"></i> GIS & Remote Sensing</h3>
-                <ul class="skill-list">
-                    <li><i class="fas fa-check"></i> ArcGIS Pro & QGIS (Advanced)</li>
-                    <li><i class="fas fa-check"></i> Satellite Image Processing</li>
-                    <li><i class="fas fa-check"></i> Spatial Analysis & Modeling</li>
-                    <li><i class="fas fa-check"></i> MapInfo Professional</li>
-                </ul>
-            </div>
-
-            <div class="skill-box">
-                <h3><i class="fas fa-chart-pie"></i> Data & Research</h3>
-                <ul class="skill-list">
-                    <li><i class="fas fa-check"></i> Statistical Analysis (SPSS)</li>
-                    <li><i class="fas fa-check"></i> Fieldwork & GPS Surveying</li>
-                    <li><i class="fas fa-check"></i> Database Management</li>
-                    <li><i class="fas fa-check"></i> Academic Writing (Zotero)</li>
-                </ul>
+            <div class="glass-card skill-category" style="padding: 2rem;">
+                <h3>GIS & Research</h3>
+                <div class="skill-item"><i class="fas fa-map-marked-alt"></i> ArcGIS Pro, QGIS, MapInfo</div>
+                <div class="skill-item"><i class="fas fa-chart-bar"></i> SPSS & OriginPro</div>
+                <div class="skill-item"><i class="fas fa-book"></i> Zotero & Mendeley</div>
             </div>
 
         </div>
     </section>
 
     <section id="experience">
-        <h2 class="section-title">Professional Journey</h2>
-        <div class="timeline">
+        <h2 class="section-title">Experience</h2>
+        <div class="glass-card" style="padding: 3rem;">
             
             <div class="timeline-item">
-                <div class="timeline-date">Sep 2024 - Present</div>
-                <h3>Controller (RGPH)</h3>
-                <h4>High Commission for Planning (HCP)</h4>
-                <p>Supervised and evaluated field investigators during the General Census. Verified geospatial data quality and reported digital anomalies in real-time using tablets.</p>
+                <div class="exp-date">Sep 2024 - Present</div>
+                <h3>Controller (RGPH) | HCP Morocco</h3>
+                [cite_start]<p>Supervised field investigators and verified digital data quality during the General Census[cite: 74, 76].</p>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">2023 - Present</div>
-                <h3>GIS Trainer & Academic Coordinator</h3>
-                <h4>Mohammed First University, Oujda</h4>
-                <p>Trained students on SPSS, Hydrology mapping using GIS, and research tools like Zotero. Led practical fieldwork training.</p>
+                <div class="exp-date">2023 - Present</div>
+                <h3>Trainer & Coordinator | Mohammed First University</h3>
+                [cite_start]<p>Trained students on SPSS, Hydrology mapping, and research bibliography tools[cite: 82, 83].</p>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">2019</div>
-                <h3>Team Leader & Trainer</h3>
-                <h4>Moroccan Red Crescent, Fès</h4>
-                <p>Developed evacuation plans utilizing spatial awareness and trained personnel in over 20 schools on first aid procedures.</p>
+                <div class="exp-date">2019</div>
+                <h3>Team Leader | Moroccan Red Crescent</h3>
+                [cite_start]<p>Developed evacuation plans and trained personnel on natural risk awareness[cite: 88, 89].</p>
             </div>
 
         </div>
     </section>
 
     <footer id="contact">
-        <div class="footer-content">
-            <h2>Let's Collaborate</h2>
-            <p>Open for research collaborations, geospatial development projects, or discussing innovative GIS solutions.</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/Zakariyae-mhj" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:zakariyae.elmahjoubi.d23@ump.ac.ma" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-
-            <div class="contact-info">
-                <div class="contact-info-item">
-                    <i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-phone-alt"></i> +212 762 785 869
-                </div>
-            </div>
+        <div class="social-icons">
+            <a href="https://github.com/Zakariyae-mhj"><i class="fab fa-github"></i></a>
+            <a href="mailto:zakariyae.elmahjoubi.d23@ump.ac.ma"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Zakariyae ElMahjoubi. Designed with <i class="fas fa-heart" style="color: var(--secondary-accent); font-size: 0.8rem;"></i> for Geospatial Innovation.</p>
-        </div>
+        <p style="color: var(--text-light);">
+            [cite_start]<i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco [cite: 10]<br>
+            &copy; 2025 Zakariyae ElMahjoubi. Built with <i class="fas fa-code"></i> & Geospatial Passion.
+        </p>
     </footer>
 
 </body>
