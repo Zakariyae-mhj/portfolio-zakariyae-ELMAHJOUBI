@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zakariyae ElMahjoubi | Geospatial Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -28,7 +28,7 @@
         body {
             line-height: 1.6;
             color: var(--text-main);
-            /* صورة خلفية طبوغرافية */
+            /* صورة الخلفية */
             background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2544&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
@@ -40,7 +40,7 @@
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(248, 250, 252, 0.90); /* زيادة التغطية قليلاً لقراءة النصوص الطويلة */
+            background: rgba(248, 250, 252, 0.9);
             z-index: -1;
         }
 
@@ -53,7 +53,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
         }
 
         nav {
@@ -216,7 +215,6 @@
             100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
 
-        /* تنسيق الأقسام */
         section {
             padding: 4rem 5%;
             max-width: 1200px;
@@ -241,14 +239,12 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        /* شبكة المحتوى */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
         
-        /* البطاقات التفصيلية */
         .detail-card {
             padding: 2rem;
             border-radius: 20px;
@@ -288,7 +284,6 @@
             padding-top: 1rem;
         }
 
-        /* المهارات */
         .skill-list-item {
             margin-bottom: 0.8rem;
             display: flex;
@@ -302,7 +297,6 @@
             margin-top: 5px;
         }
 
-        /* التعليم والخبرة */
         .timeline-box {
             position: relative;
             padding-left: 20px;
@@ -320,7 +314,6 @@
             margin-bottom: 5px;
         }
 
-        /* الفوتر */
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -352,7 +345,6 @@
             transform: translateY(-3px);
         }
 
-        /* موبايل */
         @media (max-width: 768px) {
             .hero-container {
                 flex-direction: column-reverse;
@@ -392,19 +384,19 @@
             <div class="hero-text">
                 <span class="role-badge">PhD Researcher | Geospatial Developer</span>
                 <h1>Zakariyae ElMahjoubi</h1>
-                [cite_start]<h2>PhD candidate in Geography & GIS Specialist</h2> [cite: 1, 2, 3]
+                <h2>PhD candidate in Geography & GIS Specialist</h2>
                 
                 <div class="contact-details">
-                    [cite_start]<div><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco [cite: 10]</div>
-                    [cite_start]<div><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma [cite: 8]</div>
-                    [cite_start]<div><i class="fas fa-phone"></i> +212 762 785 869 [cite: 7]</div>
-                    [cite_start]<div><i class="fab fa-github"></i> github.com/Zakariyae-mhj [cite: 9]</div>
+                    <div><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco</div>
+                    <div><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma</div>
+                    <div><i class="fas fa-phone"></i> +212 762 785 869</div>
+                    <div><i class="fab fa-github"></i> github.com/Zakariyae-mhj</div>
                 </div>
 
                 <p>
                     Passionate about bridging the gap between academic research and technical innovation. 
                     Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing. 
-                    [cite_start]Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows. [cite: 3, 4, 5, 6]
+                    Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows.
                 </p>
                 
                 <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn">
@@ -427,19 +419,19 @@
                 <span class="date-badge">2023 - Present</span>
                 <h3>PhD in Geography (In Progress)</h3>
                 <h4>Mohammed First University, Oujda</h4>
-                [cite_start]<p><strong>Thesis Topic:</strong> Water Erosion (L'érosion hydrique).</p> [cite: 12, 13, 14, 15]
+                <p><strong>Thesis Topic:</strong> Water Erosion (L'érosion hydrique).</p>
             </div>
 
             <div class="glass-card detail-card">
                 <span class="date-badge">2021 - 2023</span>
                 <h3>Master in Geomatics and Territory Management</h3>
-                [cite_start]<h4>Mohammed First University, Oujda</h4> [cite: 16, 17, 18]
+                <h4>Mohammed First University, Oujda</h4>
             </div>
 
             <div class="glass-card detail-card">
                 <span class="date-badge">2017 - 2020</span>
                 <h3>Bachelor (Licence) in Geography</h3>
-                [cite_start]<h4>Sidi Mohammed Ben Abdellah University, Fès</h4> [cite: 19, 20, 21]
+                <h4>Sidi Mohammed Ben Abdellah University, Fès</h4>
             </div>
 
         </div>
@@ -447,10 +439,10 @@
 
     <section id="portfolio">
         <div class="section-header-container">
-            <h2 class="section-title">Geospatial Development Portfolio</h2>
+            <h2 class="section-title">Geospatial Development & WebGIS Portfolio</h2>
         </div>
         <div style="margin-bottom: 2rem; text-align: center; color: var(--text-light);">
-            Active development of open-source tools for remote sensing and topographic analysis. (See GitHub for source code) [cite_start][cite: 22, 23]
+            Active development of open-source tools for remote sensing and topographic analysis. (See GitHub for source code)
         </div>
         
         <div class="content-grid">
@@ -461,8 +453,8 @@
                 <ul>
                     <li><strong>Description:</strong> Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications.</li>
                     <li><strong>Custom Indices Developed:</strong> Created and deployed code for specialized indices including MSI (Moisture Stress Index), NDVIre (Red Edge Normalized Difference Vegetation Index), PRI-RE (Photochemical Reflectance Index Red Edge), and Composite-Index models.</li>
+                    <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript integration.</li>
                 </ul>
-                [cite_start]<div class="tech-stack">Tech Stack: HTML, CSS, JavaScript integration.</div> [cite: 24, 25, 26, 27]
             </div>
 
             <div class="glass-card detail-card">
@@ -472,7 +464,7 @@
                     <li><strong>Description:</strong> Built web-based toolkits designed to automate the analysis of topographic data.</li>
                     <li><strong>Key Features:</strong> Automated extraction of terrain features, slope analysis, and geomorphological data processing.</li>
                     <li><strong>Activity:</strong> High development activity with over 79 commits in December 2025, demonstrating continuous iteration and deployment.</li>
-                [cite_start]</ul> [cite: 28, 29, 30, 31]
+                </ul>
             </div>
 
             <div class="glass-card detail-card">
@@ -481,8 +473,8 @@
                 <ul>
                     <li><strong>Description:</strong> Python-based applications designed to support the calculation of soil loss and erosion risk modeling (aligned with PhD research).</li>
                     <li><strong>Functionality:</strong> Automates data inputs for erosion models (likely RUSLE) to streamline the assessment of water erosion in the Moulouya basin.</li>
+                    <li><strong>Tech Stack:</strong> Python, Geoprocessing libraries.</li>
                 </ul>
-                [cite_start]<div class="tech-stack">Tech Stack: Python, Geoprocessing libraries.</div> [cite: 32, 33, 34]
             </div>
 
             <div class="glass-card detail-card">
@@ -490,7 +482,7 @@
                 <h4>(Spi-code)</h4>
                 <ul>
                     <li><strong>Description:</strong> Scripting for the calculation of the Standardized Precipitation Index (SPI) to monitor drought and climatic variations over time.</li>
-                [cite_start]</ul> [cite: 59, 60]
+                </ul>
             </div>
 
         </div>
@@ -498,23 +490,23 @@
 
     <section id="skills">
         <div class="section-header-container">
-            <h2 class="section-title">Technical Skills & Qualities</h2>
+            <h2 class="section-title">Skills & Qualities</h2>
         </div>
         <div class="content-grid">
             
             <div class="glass-card detail-card">
-                <h3>Geospatial Software & Dev</h3>
+                <h3>Technical Skills</h3>
                 <div class="skill-list-item"><i class="fas fa-check-circle"></i> <strong>GIS & RS Software:</strong> ArcGIS Pro, QGIS, MapInfo, ERDAS Imagine, ENVI.</div>
                 <div class="skill-list-item"><i class="fas fa-check-circle"></i> <strong>Geospatial Programming:</strong> Python (Automation of geoprocessing tasks and tool development).</div>
                 <div class="skill-list-item"><i class="fas fa-check-circle"></i> <strong>Cloud Analysis:</strong> Google Earth Engine (GEE).</div>
-                [cite_start]<div class="skill-list-item"><i class="fas fa-check-circle"></i> <strong>Web Mapping:</strong> HTML/CSS for deploying interactive map interfaces.</div> [cite: 61, 62, 63, 64, 65, 66, 67, 68]
+                <div class="skill-list-item"><i class="fas fa-check-circle"></i> <strong>Web Mapping:</strong> HTML/CSS for deploying interactive map interfaces.</div>
             </div>
 
             <div class="glass-card detail-card">
-                <h3>Data, Research & Languages</h3>
+                <h3>Data & Research</h3>
                 <div class="skill-list-item"><i class="fas fa-chart-pie"></i> <strong>Data Analysis:</strong> SPSS (Spatial Statistical Analysis), OriginPro, Excel (Advanced).</div>
                 <div class="skill-list-item"><i class="fas fa-book"></i> <strong>Research Tools:</strong> Zotero, Mendeley.</div>
-                [cite_start]<div class="skill-list-item"><i class="fas fa-language"></i> <strong>Languages:</strong> Arabic (Native), French (Advanced), English (Functional/Technical - Reading documentation and programming).</div> [cite: 69, 70, 71, 53, 54, 55, 56, 57, 58]
+                <div class="skill-list-item"><i class="fas fa-language"></i> <strong>Languages:</strong> Arabic (Native), French (Advanced), English (Functional/Technical - Reading documentation and programming).</div>
             </div>
 
             <div class="glass-card detail-card">
@@ -523,7 +515,7 @@
                 <div class="skill-list-item"><i class="fas fa-star"></i> <strong>Adaptability:</strong> Fast learner (GIS to Coding).</div>
                 <div class="skill-list-item"><i class="fas fa-star"></i> <strong>Analytical:</strong> Strong problem-solving skills.</div>
                 <div class="skill-list-item"><i class="fas fa-star"></i> <strong>Communication:</strong> Public speaking & reporting.</div>
-                [cite_start]<div class="skill-list-item"><i class="fas fa-star"></i> <strong>Organization:</strong> Database structuring.</div> [cite: 47, 48, 49, 50, 51, 52]
+                <div class="skill-list-item"><i class="fas fa-star"></i> <strong>Organization:</strong> Database structuring.</div>
             </div>
 
         </div>
@@ -542,7 +534,7 @@
                 <ul>
                     <li>Supervised and evaluated field investigators during the General Census of Population and Housing.</li>
                     <li>Verified data quality and reported digital anomalies in real-time.</li>
-                [cite_start]</ul> [cite: 73, 74, 75, 76]
+                </ul>
             </div>
 
             <div class="timeline-box">
@@ -551,7 +543,7 @@
                 <h4>High Commission for Planning (HCP) | Morocco</h4>
                 <ul>
                     <li>Delivered intensive training to field staff on survey techniques, digital tools, and data rigor for the national census operation.</li>
-                [cite_start]</ul> [cite: 77, 78, 79, 80]
+                </ul>
             </div>
 
             <div class="timeline-box">
@@ -563,7 +555,7 @@
                     <li><strong>Hydrology & Mapping:</strong> Coordinated workshops on groundwater mapping using GIS and GPS probes.</li>
                     <li><strong>Research Tools:</strong> Conducted training on automated bibliography management (Zotero, Mendeley) and scientific identity building (Google Scholar, ResearchGate).</li>
                     <li><strong>Fieldwork:</strong> Led practical training on hydrological analysis and topographic map reading.</li>
-                [cite_start]</ul> [cite: 81, 82, 83, 84, 85, 86]
+                </ul>
             </div>
 
             <div class="timeline-box">
@@ -573,7 +565,7 @@
                 <ul>
                     <li>Developed evacuation plans and conducted natural risk awareness sessions.</li>
                     <li>Trained personnel in over 20 schools on first aid procedures.</li>
-                [cite_start]</ul> [cite: 87, 88, 89, 90]
+                </ul>
             </div>
 
         </div>
