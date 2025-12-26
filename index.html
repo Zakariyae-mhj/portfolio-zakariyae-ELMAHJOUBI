@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zakariyae ElMahjoubi | Geospatial Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Zakariyae ElMahjoubi | Geospatial Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* لوحة ألوان جيومكانية */
-            --bg-earth: #2c2420; /* لون ترابي داكن */
-            --card-bg: rgba(30, 41, 59, 0.85); /* لون صخري داكن نصف شفاف */
-            --text-main: #e2e8f0; /* أبيض مائل للرمادي */
-            --text-muted: #94a3b8; /* رمادي فاتح */
-            --highlight-blue: #008cb3; /* أزرق مائي/تقني ساطع */
-            --accent-green: #4d7c0f; /* أخضر زيتوني خفيف للتواريخ */
-            
-            --font-serif: 'Playfair Display', serif;
-            --font-mono: 'Space Mono', monospace;
+            /* ألوان مستوحاة من Esri Brand */
+            --esri-blue: #0079c1;
+            --esri-dark-blue: #005e95;
+            --text-dark: #323232;
+            --text-gray: #595959;
+            --bg-light: #f3f3f3;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
         }
 
         * {
@@ -30,439 +26,675 @@
         }
 
         body {
-            background-color: var(--bg-earth);
-            color: var(--text-main);
-            font-family: var(--font-mono);
+            font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
             line-height: 1.6;
-            padding: 2rem;
-            min-height: 100vh;
-            /* إضافة صورة خلفية طبوغرافية خفيفة مع طبقة تغطية */
-            background-image: 
-                linear-gradient(rgba(44, 36, 32, 0.92), rgba(44, 36, 32, 0.92)), /* طبقة تغطية لتخفيف الصورة */
-                url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2070&auto=format&fit=crop'); /* صورة خريطة طبوغرافية */
+            background-color: var(--white);
+        }
+
+        /* --- Global Components --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--esri-blue);
+        }
+
+        /* زر بتصميم Esri */
+        .btn-esri {
+            display: inline-block;
+            background-color: var(--esri-blue);
+            color: var(--white);
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 2px; /* حواف حادة قليلاً مثل ستايل الشركات */
+            transition: background 0.3s ease;
+        }
+
+        .btn-esri:hover {
+            background-color: var(--esri-dark-blue);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--esri-blue);
+            color: var(--esri-blue);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--esri-blue);
+            color: var(--white);
+        }
+
+        /* --- Navbar --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--esri-blue);
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-gray);
+        }
+
+        .nav-links a:hover {
+            color: var(--esri-blue);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: var(--white);
         }
 
-        /* تنسيق الشبكة Bento Grid */
-        .bento-grid {
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 700px;
+        }
+
+        /* --- Sections Layout --- */
+        section {
+            padding: 80px 0;
+        }
+
+        /* Gray Background Section (Alternating) */
+        .bg-light {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* --- About Grid --- */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(200px, auto);
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
         }
 
-        /* تصميم الكروت العام */
-        .card {
-            background-color: var(--card-bg);
-            backdrop-filter: blur(10px); /* تأثير الزجاج */
-            border-radius: 24px;
-            padding: 2rem;
-            position: relative;
+        .profile-img-container img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        .info-list i {
+            color: var(--esri-blue);
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        /* --- Portfolio Cards (Esri Style) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
             overflow: hidden;
-            border: 1px solid rgba(0, 140, 179, 0.15); /* حدود زرقاء خفيفة */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
             display: flex;
             flex-direction: column;
         }
 
-        .card:hover {
-            transform: translateY(-5px) scale(1.01);
-            border-color: var(--highlight-blue);
-            box-shadow: 0 20px 40px rgba(0, 140, 179, 0.2);
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--esri-blue);
         }
 
-        /* العناوين داخل الكروت */
-        h1, h2, h3 {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
+        .card-header {
+            background-color: var(--esri-blue);
+            color: white;
+            padding: 20px;
         }
 
-        .section-tag {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--highlight-blue);
-            margin-bottom: 1rem;
-            display: block;
-            opacity: 0.8;
-        }
-
-        /* --- تخصيص المناطق (Areas) --- */
-
-        /* 1. الملف الشخصي (كبير) */
-        .area-profile {
-            grid-column: span 2;
-            grid-row: span 2;
-            justify-content: space-between;
-            /* تدرج لوني خفيف جداً داخل الكرت */
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(20, 30, 45, 0.9) 100%);
-        }
-
-        .profile-header h1 {
-            font-size: 3.5rem;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .role-text {
-            color: var(--highlight-blue);
-            font-size: 1.1rem;
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        .bio-text {
-            margin-top: 2rem;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* 2. الصورة */
-        .area-photo {
-            grid-column: span 1;
-            grid-row: span 2;
-            padding: 0;
-            border: none;
-        }
-
-        .area-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            border-radius: 24px;
-        }
-        
-        .area-photo:hover img {
-            transform: scale(1.05);
-        }
-
-        /* 3. التواصل */
-        .area-contact {
-            grid-column: span 1;
-            grid-row: span 2;
-            background-color: rgba(0, 140, 179, 0.1); /* خلفية زرقاء خفيفة جداً */
-            justify-content: center;
-            border-color: var(--highlight-blue);
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .contact-link:hover {
-            color: var(--highlight-blue);
-            padding-left: 10px;
-        }
-
-        .contact-link i {
-            margin-right: 15px;
+        .card-header h3 {
+            color: white;
             font-size: 1.2rem;
-            color: var(--highlight-blue);
+            margin: 0;
         }
 
-        /* 4. المشاريع (عريض) */
-        .area-projects {
-            grid-column: span 4;
+        .card-header span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            display: block;
+            margin-top: 5px;
         }
 
-        .projects-scroll {
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .card-body p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card-body ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card-body li {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #eef6fb;
+            color: var(--esri-dark-blue);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: auto;
+            border-radius: 2px;
+        }
+
+        /* --- Skills Section --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-group h3 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
             display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-            scrollbar-width: thin;
-            scrollbar-color: var(--highlight-blue) var(--card-bg);
-        }
-        
-        .project-item {
-            min-width: 350px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 3px solid var(--highlight-blue);
-            transition: 0.3s;
-        }
-        
-        .project-item:hover {
-            background: rgba(0, 140, 179, 0.1);
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
         }
 
-        .project-title {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
+        .skill-item i {
+            color: var(--esri-blue);
+            margin-right: 12px;
+            margin-top: 4px;
         }
 
-        .tech-stack {
-            font-size: 0.75rem;
-            color: var(--highlight-blue);
-            margin-top: 1rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /* 5. التعليم */
-        .area-edu {
-            grid-column: span 2;
-        }
-
+        /* --- Experience & Education --- */
         .timeline-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            border-left: 2px solid rgba(77, 124, 15, 0.5); /* خط أخضر زيتوني */
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--esri-blue);
+            padding-left: 30px;
         }
 
         .timeline-date {
-            font-size: 0.85rem;
-            color: var(--accent-green);
-            font-weight: bold;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.1rem;
         }
 
-        /* 6. الخبرة */
-        .area-exp {
-            grid-column: span 2;
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
         }
 
-        /* 7. المهارات */
-        .area-skills {
-            grid-column: span 4;
+        .timeline-content h4 {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+            color: var(--text-gray);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #b3b3b3;
         }
 
-        .skill-pill {
-            padding: 0.6rem 1.2rem;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 140, 179, 0.3);
-            border-radius: 50px;
-            font-size: 0.9rem;
+        .footer-contact-item i {
+            margin-right: 15px;
+            color: var(--esri-blue);
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: var(--white);
+            margin-right: 10px;
+            border-radius: 50%;
             transition: 0.3s;
-            color: var(--text-main);
         }
 
-        .skill-pill:hover {
-            background-color: var(--highlight-blue);
-            color: #fff;
-            border-color: var(--highlight-blue);
-            transform: translateY(-2px);
+        .footer-social a:hover {
+            background-color: var(--esri-blue);
         }
 
-        /* زر التحميل */
-        .btn-download {
-            margin-top: 1rem;
-            display: inline-block;
-            background: var(--highlight-blue);
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: 0.3s;
-            border: 2px solid var(--highlight-blue);
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 30px;
             text-align: center;
-        }
-        
-        .btn-download:hover {
-            background: transparent;
-            color: var(--highlight-blue);
+            color: #666;
+            font-size: 0.9rem;
         }
 
-        /* التجاوب للموبايل */
-        @media (max-width: 900px) {
-            body {
-                padding: 1rem;
-            }
-            .bento-grid {
+        /* Mobile */
+        @media (max-width: 768px) {
+            .about-grid, .timeline-item, .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
-            .area-profile, .area-photo, .area-contact, .area-projects, .area-edu, .area-exp, .area-skills {
-                grid-column: span 1;
-                grid-row: auto;
-            }
-            .profile-header h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
-            .area-photo {
-                height: 350px;
-                order: -1; /* جعل الصورة في الأعلى على الموبايل */
+            .nav-links {
+                display: none;
+            }
+            .timeline-item {
+                padding-left: 15px;
+                border-left-width: 3px;
             }
         }
-
     </style>
 </head>
 <body>
 
-    <div class="bento-grid">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-globe-americas"></i> Zakariyae ElMahjoubi
+                </div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#skills">Capabilities</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        <div class="card area-profile">
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>PhD Researcher & Geospatial Developer [cite: 2]</h1>
+            <p>PhD candidate in Geography specializing in water erosion and spatial analysis. Bridging the gap between academic research and technical innovation[cite: 3, 4].</p>
             <div>
-                <span class="section-tag"><i class="fas fa-id-card"></i> Identity</span>
-                <div class="profile-header">
-                    <h1>ZAKARIYAE<br>ELMAHJOUBI</h1>
-                    <p class="role-text">PHD RESEARCHER | GEOSPATIAL DEVELOPER & GIS SPECIALIST</p>
-                </div>
-                <div class="bio-text">
-                    <p>PhD candidate in Geography specializing in water erosion and spatial analysis. Passionate about bridging the gap between academic research and technical innovation. Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing. Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows.</p>
-                </div>
+                <a href="#portfolio" class="btn-esri">View Projects</a>
+                <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn-esri btn-outline">Download CV</a>
             </div>
-            <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn-download">
-                <i class="fas fa-download"></i> Download CV PDF
-            </a>
         </div>
+    </section>
 
-        <div class="card area-photo">
-            <img src="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/Gemini_Generated_Image_dl7agrdl7agrdl7a.png?raw=true" alt="Zakariyae ElMahjoubi">
-        </div>
-
-        <div class="card area-contact">
-            <span class="section-tag" style="text-align: center;"><i class="fas fa-satellite-dish"></i> Coordinates</span>
-            <a href="#" class="contact-link">
-                <i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco
-            </a>
-            <a href="mailto:zakariyae.elmahjoubi.d23@ump.ac.ma" class="contact-link">
-                <i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma
-            </a>
-            <a href="tel:+212762785869" class="contact-link">
-                <i class="fas fa-phone"></i> +212 762 785 869
-            </a>
-            <a href="https://github.com/Zakariyae-mhj" class="contact-link">
-                <i class="fab fa-github"></i> github.com/Zakariyae-mhj
-            </a>
-        </div>
-
-        <div class="card area-skills">
-            <span class="section-tag" style="width: 100%;"><i class="fas fa-tools"></i> Technical Arsenal</span>
-            <span class="skill-pill">ArcGIS Pro</span>
-            <span class="skill-pill">QGIS</span>
-            <span class="skill-pill">MapInfo</span>
-            <span class="skill-pill">ERDAS Imagine</span>
-            <span class="skill-pill">ENVI</span>
-            <span class="skill-pill"><i class="fab fa-python"></i> Python (Automation)</span>
-            <span class="skill-pill"><i class="fas fa-globe"></i> Google Earth Engine (GEE)</span>
-            <span class="skill-pill">HTML/CSS</span>
-            <span class="skill-pill">Web Mapping</span>
-            <span class="skill-pill">SPSS</span>
-            <span class="skill-pill">OriginPro</span>
-            <span class="skill-pill">Zotero & Mendeley</span>
-            <span class="skill-pill">GPS & Topographic Surveying</span>
-            <span class="skill-pill">Leadership</span>
-            <span class="skill-pill">Arabic (Native)</span>
-            <span class="skill-pill">French (Advanced)</span>
-            <span class="skill-pill">English (Technical)</span>
-        </div>
-
-        <div class="card area-projects">
-            <span class="section-tag"><i class="fas fa-laptop-code"></i> Geospatial Development & WebGIS Portfolio</span>
-            <p style="margin-bottom: 1rem; color: var(--text-muted);">Active development of open-source tools for remote sensing and topographic analysis.</p>
-            
-            <div class="projects-scroll">
+    <section id="about" class="container">
+        <h2 class="section-title">Professional Overview</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    Evolving from a GIS analyst to a Geospatial Developer, with a strong portfolio of open-source WebGIS tools and Python applications for topographic analysis and spectral indexing[cite: 5].
+                </p>
+                <p style="color: var(--text-gray); margin-bottom: 20px;">
+                    Proven expertise in ArcGIS Pro, Google Earth Engine, and automating complex geospatial workflows. [cite: 6]
+                </p>
                 
-                <div class="project-item">
-                    <div class="project-title">1. Web-Based Spectral Indices Platform</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">(indice_web_Site)</div>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications.</p>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Custom Indices Developed: Created and deployed code for specialized indices including MSI, NDVIre, PRI-RE, and Composite-Index models.</p>
-                    <div class="tech-stack">HTML, CSS, JavaScript integration.</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">2. Topographic Analysis Suite</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">(AASTopo & topoPro)</div>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Built web-based toolkits designed to automate the analysis of topographic data.</p>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Key Features: Automated extraction of terrain features, slope analysis, and geomorphological data processing.</p>
-                    <div class="tech-stack">High development activity: +79 commits in Dec 2025.</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">3. Erosion Modeling & Analysis</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">(erosion-app & My-Geo-App)</div>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Python-based applications designed to support the calculation of soil loss and erosion risk modeling (aligned with PhD research).</p>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Functionality: Automates data inputs for erosion models (likely RUSLE) to streamline the assessment of water erosion in the Moulouya basin.</p>
-                    <div class="tech-stack"><i class="fab fa-python"></i> Python, Geoprocessing libraries.</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">4. Climate Analysis Tools</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">(Spi-code)</div>
-                    <p style="font-size: 0.85rem; margin-top:0.5rem;">Scripting for the calculation of the Standardized Precipitation Index (SPI) to monitor drought and climatic variations over time.</p>
-                    <div class="tech-stack"><i class="fas fa-code"></i> Google Earth Engine Scripting</div>
-                </div>
-
+                <h3 style="font-size: 1.2rem; margin-top: 30px;">Contact Information</h3>
+                <ul class="info-list">
+                    <li><i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco [cite: 10]</li>
+                    <li><i class="fas fa-phone"></i> +212 762 785 869 [cite: 7]</li>
+                    <li><i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma [cite: 8]</li>
+                    <li><i class="fab fa-github"></i> github.com/Zakariyae-mhj [cite: 9]</li>
+                </ul>
+            </div>
+            <div class="profile-img-container">
+                <img src="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/Gemini_Generated_Image_dl7agrdl7agrdl7a.png?raw=true" alt="Zakariyae ElMahjoubi">
             </div>
         </div>
+    </section>
 
-        <div class="card area-edu">
-            <span class="section-tag"><i class="fas fa-graduation-cap"></i> Academic Timeline</span>
+    <section id="portfolio" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Geospatial Development Portfolio</h2>
+            <p style="margin-bottom: 40px; color: var(--text-gray);">Active development of open-source tools for remote sensing and topographic analysis. [cite: 23]</p>
             
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>Web-Based Spectral Indices</h3>
+                        <span>(indice_web_Site) [cite: 24]</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications. [cite: 25]</p>
+                        <ul>
+                            <li><strong>Custom Indices:</strong> Created/deployed code for MSI, NDVIre, PRI-RE, and Composite-Index models. [cite: 26]</li>
+                        </ul>
+                        <span class="tech-tag">HTML, CSS, JavaScript [cite: 27]</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>Topographic Analysis Suite</h3>
+                        <span>(AASTopo & topoPro) [cite: 28]</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Built web-based toolkits designed to automate the analysis of topographic data. [cite: 29]</p>
+                        <ul>
+                            <li><strong>Key Features:</strong> Automated extraction of terrain features, slope analysis, and geomorphological data processing. [cite: 30]</li>
+                        </ul>
+                        <span class="tech-tag">High Activity: +79 commits (Dec 2025) [cite: 31]</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>Erosion Modeling & Analysis</h3>
+                        <span>(erosion-app & My-Geo-App) [cite: 32]</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Python-based applications designed to support the calculation of soil loss and erosion risk modeling (aligned with PhD research). [cite: 32]</p>
+                        <ul>
+                            <li><strong>Functionality:</strong> Automates data inputs for erosion models (likely RUSLE) to streamline water erosion assessment in Moulouya basin. [cite: 33]</li>
+                        </ul>
+                        <span class="tech-tag">Python, Geoprocessing libraries [cite: 34]</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>Climate Analysis Tools</h3>
+                        <span>(Spi-code) [cite: 59]</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Scripting for the calculation of the Standardized Precipitation Index (SPI) to monitor drought and climatic variations over time. [cite: 60]</p>
+                        <span class="tech-tag">Google Earth Engine (GEE) [cite: 67]</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">Technical Skills & Qualities</h2>
+        
+        <div class="skills-container">
+            <div class="skill-group">
+                <h3>Geospatial & Dev</h3>
+                <div class="skill-item"><i class="fas fa-check"></i> ArcGIS Pro, QGIS, MapInfo [cite: 37]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Google Earth Engine, ENVI [cite: 38, 39]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Python (Automation), HTML/CSS [cite: 40]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> WebGIS, GitHub Pages [cite: 41]</div>
+            </div>
+
+            <div class="skill-group">
+                <h3>Data & Research</h3>
+                <div class="skill-item"><i class="fas fa-check"></i> SPSS, OriginPro, Excel [cite: 43]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Zotero, Mendeley [cite: 44]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Fieldwork: GPS, Topographic Surveying [cite: 45]</div>
+            </div>
+
+            <div class="skill-group">
+                <h3>Languages & Qualities</h3>
+                <div class="skill-item"><i class="fas fa-check"></i> Arabic (Native), French (Advanced) [cite: 54, 55]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> English (Technical/Reading) [cite: 56]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Leadership & Team Supervision [cite: 48]</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Adaptability (GIS to Coding) [cite: 49]</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+
             <div class="timeline-item">
-                <span class="timeline-date">2023 - Present</span>
-                <h3>PhD in Geography (In Progress)</h3>
-                <p>Mohammed First University, Oujda.</p>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Thesis Topic: Water Erosion (L'érosion hydrique).</p>
+                <div class="timeline-date">Sep 2024</div>
+                <div class="timeline-content">
+                    <h3>Controller (RGPH)</h3>
+                    <h4>High Commission for Planning (HCP) | Morocco [cite: 73, 74]</h4>
+                    <ul>
+                        <li>Supervised and evaluated field investigators during the General Census of Population and Housing. [cite: 75]</li>
+                        <li>Verified data quality and reported digital anomalies in real-time. [cite: 76]</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="timeline-item">
-                <span class="timeline-date">2021 - 2023</span>
-                <h3>Master in Geomatics and Territory Management</h3>
-                <p>Mohammed First University, Oujda.</p>
+                <div class="timeline-date">Aug 2024</div>
+                <div class="timeline-content">
+                    <h3>Investigator Trainer</h3>
+                    <h4>High Commission for Planning (HCP) [cite: 77]</h4>
+                    <ul>
+                        <li>Delivered intensive training to field staff on survey techniques, digital tools, and data rigor for the national census operation. [cite: 78-80]</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="timeline-item">
-                <span class="timeline-date">2017 - 2020</span>
-                <h3>Bachelor (Licence) in Geography</h3>
-                <p>Sidi Mohammed Ben Abdellah University, Fès.</p>
+                <div class="timeline-date">2023 - Present</div>
+                <div class="timeline-content">
+                    <h3>Trainer & Academic Coordinator</h3>
+                    <h4>Mohammed First University | Oujda [cite: 81, 82]</h4>
+                    <ul>
+                        <li><strong>Spatial Statistics:</strong> Trained students on using SPSS for territorial data analysis. [cite: 83]</li>
+                        <li><strong>Hydrology:</strong> Coordinated workshops on groundwater mapping using GIS and GPS probes. [cite: 84]</li>
+                        <li><strong>Research Tools:</strong> Training on Zotero, Mendeley, Google Scholar. [cite: 85]</li>
+                        <li><strong>Fieldwork:</strong> Led practical training on hydrological analysis and topographic map reading. [cite: 86]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2019</div>
+                <div class="timeline-content">
+                    <h3>Team Leader & Trainer</h3>
+                    <h4>Moroccan Red Crescent | Fès [cite: 87, 88]</h4>
+                    <ul>
+                        <li>Developed evacuation plans and conducted natural risk awareness sessions. [cite: 89]</li>
+                        <li>Trained personnel in over 20 schools on first aid procedures. [cite: 90]</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 class="section-title">Education History</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">2023 - Present</div>
+            <div class="timeline-content">
+                <h3>PhD in Geography (In Progress) [cite: 12]</h3>
+                <h4>Mohammed First University, Oujda [cite: 13]</h4>
+                <ul>
+                    <li>Thesis Topic: Water Erosion (L'érosion hydrique). [cite: 15]</li>
+                </ul>
             </div>
         </div>
 
-        <div class="card area-exp">
-            <span class="section-tag"><i class="fas fa-briefcase"></i> Professional Trajectory</span>
-
-            <div class="timeline-item">
-                <span class="timeline-date">Sep 2024</span>
-                <h3>Controller (RGPH) - HCP Morocco</h3>
-                <p style="font-size: 0.9rem;">Supervised and evaluated field investigators during the General Census of Population and Housing. Verified data quality and reported digital anomalies in real-time.</p>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">Aug 2024</span>
-                <h3>Investigator Trainer - HCP Morocco</h3>
-                <p style="font-size: 0.9rem;">Delivered intensive training to field staff on survey techniques, digital tools, and data rigor for the national census operation.</p>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">2023 - Present</span>
-                <h3>Trainer & Academic Coordinator - UMP Oujda</h3>
-                <p style="font-size: 0.9rem;">Spatial Statistics (SPSS), Hydrology & Mapping (GIS/GPS), Research Tools (Zotero/Mendeley), and Fieldwork leadership.</p>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">2019</span>
-                <h3>Team Leader & Trainer - Red Crescent</h3>
-                <p style="font-size: 0.9rem;">Developed evacuation plans and conducted natural risk awareness sessions. Trained personnel in over 20 schools on first aid procedures.</p>
+        <div class="timeline-item">
+            <div class="timeline-date">2021 - 2023</div>
+            <div class="timeline-content">
+                <h3>Master in Geomatics and Territory Management [cite: 16]</h3>
+                <h4>Mohammed First University, Oujda [cite: 17]</h4>
             </div>
         </div>
 
-    </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2017 - 2020</div>
+            <div class="timeline-content">
+                <h3>Bachelor (Licence) in Geography [cite: 19]</h3>
+                <h4>Sidi Mohammed Ben Abdellah University, Fès [cite: 20]</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Zakariyae ElMahjoubi</h3>
+                    <p style="color: #b3b3b3; max-width: 400px;">
+                        Passionate about bridging the gap between academic research and technical innovation in Geospatial Science. [cite: 4]
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in Touch</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco [cite: 10]
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i> zakariyae.elmahjoubi.d23@ump.ac.ma [cite: 8]
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/Zakariyae-mhj"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Zakariyae ElMahjoubi. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
