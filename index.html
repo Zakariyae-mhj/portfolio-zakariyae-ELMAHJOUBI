@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zakariyae ElMahjoubi | The Geospatial Portfolio</title>
+    <title>Zakariyae ElMahjoubi | Geospatial Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -11,12 +11,14 @@
     
     <style>
         :root {
-            --bg-dark: #0e0e10;
-            --card-bg: #18181b;
-            --text-main: #f4f4f5;
-            --text-muted: #a1a1aa;
-            --accent: #d4d4d8; /* فضي معدني */
-            --highlight: #3b82f6; /* أزرق تقني */
+            /* لوحة ألوان جيومكانية */
+            --bg-earth: #2c2420; /* لون ترابي داكن */
+            --card-bg: rgba(30, 41, 59, 0.85); /* لون صخري داكن نصف شفاف */
+            --text-main: #e2e8f0; /* أبيض مائل للرمادي */
+            --text-muted: #94a3b8; /* رمادي فاتح */
+            --highlight-blue: #008cb3; /* أزرق مائي/تقني ساطع */
+            --accent-green: #4d7c0f; /* أخضر زيتوني خفيف للتواريخ */
+            
             --font-serif: 'Playfair Display', serif;
             --font-mono: 'Space Mono', monospace;
         }
@@ -28,14 +30,19 @@
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-earth);
             color: var(--text-main);
-            font-family: var(--font-mono); /* الخط الأساسي تقني */
+            font-family: var(--font-mono);
             line-height: 1.6;
             padding: 2rem;
             min-height: 100vh;
-            /* خلفية نويز خفيفة */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            /* إضافة صورة خلفية طبوغرافية خفيفة مع طبقة تغطية */
+            background-image: 
+                linear-gradient(rgba(44, 36, 32, 0.92), rgba(44, 36, 32, 0.92)), /* طبقة تغطية لتخفيف الصورة */
+                url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2070&auto=format&fit=crop'); /* صورة خريطة طبوغرافية */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         /* تنسيق الشبكة Bento Grid */
@@ -51,11 +58,13 @@
         /* تصميم الكروت العام */
         .card {
             background-color: var(--card-bg);
+            backdrop-filter: blur(10px); /* تأثير الزجاج */
             border-radius: 24px;
             padding: 2rem;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(0, 140, 179, 0.15); /* حدود زرقاء خفيفة */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
@@ -63,15 +72,16 @@
 
         .card:hover {
             transform: translateY(-5px) scale(1.01);
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--highlight-blue);
+            box-shadow: 0 20px 40px rgba(0, 140, 179, 0.2);
         }
 
         /* العناوين داخل الكروت */
         h1, h2, h3 {
-            font-family: var(--font-serif); /* استخدام الخط الكلاسيكي للعناوين */
+            font-family: var(--font-serif);
             font-weight: 700;
             margin-bottom: 1rem;
+            color: #fff;
         }
 
         .section-tag {
@@ -79,11 +89,10 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--text-muted);
+            color: var(--highlight-blue);
             margin-bottom: 1rem;
             display: block;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 0.5rem;
+            opacity: 0.8;
         }
 
         /* --- تخصيص المناطق (Areas) --- */
@@ -92,23 +101,23 @@
         .area-profile {
             grid-column: span 2;
             grid-row: span 2;
-            background: linear-gradient(145deg, #18181b 0%, #09090b 100%);
             justify-content: space-between;
+            /* تدرج لوني خفيف جداً داخل الكرت */
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(20, 30, 45, 0.9) 100%);
         }
 
         .profile-header h1 {
             font-size: 3.5rem;
             line-height: 1;
-            background: linear-gradient(to right, #fff, #999);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
+            color: #fff;
         }
 
         .role-text {
-            color: var(--highlight);
+            color: var(--highlight-blue);
             font-size: 1.1rem;
             font-style: italic;
+            font-weight: 600;
         }
 
         .bio-text {
@@ -122,6 +131,7 @@
             grid-column: span 1;
             grid-row: span 2;
             padding: 0;
+            border: none;
         }
 
         .area-photo img {
@@ -129,19 +139,20 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            border-radius: 24px;
         }
         
         .area-photo:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         /* 3. التواصل */
         .area-contact {
             grid-column: span 1;
             grid-row: span 2;
-            background-color: #000;
-            color: #fff;
+            background-color: rgba(0, 140, 179, 0.1); /* خلفية زرقاء خفيفة جداً */
             justify-content: center;
+            border-color: var(--highlight-blue);
         }
 
         .contact-link {
@@ -149,25 +160,25 @@
             align-items: center;
             margin-bottom: 1.5rem;
             text-decoration: none;
-            color: var(--text-muted);
+            color: var(--text-main);
             transition: 0.3s;
             font-size: 0.9rem;
         }
 
         .contact-link:hover {
-            color: #fff;
+            color: var(--highlight-blue);
             padding-left: 10px;
         }
 
         .contact-link i {
             margin-right: 15px;
             font-size: 1.2rem;
+            color: var(--highlight-blue);
         }
 
         /* 4. المشاريع (عريض) */
         .area-projects {
-            grid-column: span 4; /* يأخذ العرض كامل */
-            background-color: #111;
+            grid-column: span 4;
         }
 
         .projects-scroll {
@@ -176,15 +187,20 @@
             overflow-x: auto;
             padding-bottom: 1rem;
             scrollbar-width: thin;
-            scrollbar-color: #333 #111;
+            scrollbar-color: var(--highlight-blue) var(--card-bg);
         }
         
         .project-item {
             min-width: 350px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(0, 0, 0, 0.2);
             padding: 1.5rem;
             border-radius: 12px;
-            border-left: 3px solid var(--highlight);
+            border-left: 3px solid var(--highlight-blue);
+            transition: 0.3s;
+        }
+        
+        .project-item:hover {
+            background: rgba(0, 140, 179, 0.1);
         }
 
         .project-title {
@@ -196,26 +212,27 @@
 
         .tech-stack {
             font-size: 0.75rem;
-            color: var(--highlight);
+            color: var(--highlight-blue);
             margin-top: 1rem;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
         /* 5. التعليم */
         .area-edu {
             grid-column: span 2;
-            background-color: #1c1c21;
         }
 
         .timeline-item {
             margin-bottom: 1.5rem;
             padding-left: 1rem;
-            border-left: 1px solid #333;
+            border-left: 2px solid rgba(77, 124, 15, 0.5); /* خط أخضر زيتوني */
         }
 
         .timeline-date {
-            font-size: 0.8rem;
-            color: var(--highlight);
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            font-weight: bold;
         }
 
         /* 6. الخبرة */
@@ -233,41 +250,50 @@
         }
 
         .skill-pill {
-            padding: 0.5rem 1.2rem;
-            border: 1px solid #333;
+            padding: 0.6rem 1.2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 140, 179, 0.3);
             border-radius: 50px;
             font-size: 0.9rem;
             transition: 0.3s;
+            color: var(--text-main);
         }
 
         .skill-pill:hover {
-            background-color: #fff;
-            color: #000;
-            border-color: #fff;
+            background-color: var(--highlight-blue);
+            color: #fff;
+            border-color: var(--highlight-blue);
+            transform: translateY(-2px);
         }
 
         /* زر التحميل */
         .btn-download {
             margin-top: 1rem;
             display: inline-block;
-            background: #fff;
-            color: #000;
-            padding: 10px 20px;
+            background: var(--highlight-blue);
+            color: #fff;
+            padding: 12px 25px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 50px;
             transition: 0.3s;
+            border: 2px solid var(--highlight-blue);
+            text-align: center;
         }
         
         .btn-download:hover {
-            background: var(--highlight);
-            color: #fff;
+            background: transparent;
+            color: var(--highlight-blue);
         }
 
         /* التجاوب للموبايل */
         @media (max-width: 900px) {
+            body {
+                padding: 1rem;
+            }
             .bento-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
             .area-profile, .area-photo, .area-contact, .area-projects, .area-edu, .area-exp, .area-skills {
                 grid-column: span 1;
@@ -277,7 +303,8 @@
                 font-size: 2.5rem;
             }
             .area-photo {
-                height: 300px;
+                height: 350px;
+                order: -1; /* جعل الصورة في الأعلى على الموبايل */
             }
         }
 
@@ -289,7 +316,7 @@
 
         <div class="card area-profile">
             <div>
-                <span class="section-tag">Identity</span>
+                <span class="section-tag"><i class="fas fa-id-card"></i> Identity</span>
                 <div class="profile-header">
                     <h1>ZAKARIYAE<br>ELMAHJOUBI</h1>
                     <p class="role-text">PHD RESEARCHER | GEOSPATIAL DEVELOPER & GIS SPECIALIST</p>
@@ -299,7 +326,7 @@
                 </div>
             </div>
             <a href="https://github.com/Zakariyae-mhj/portfolio-zakariyae-ELMAHJOUBI/blob/main/CV%20ELMAHJOUBI%20ZAKARIYAE.pdf?raw=true" class="btn-download">
-                Download CV PDF
+                <i class="fas fa-download"></i> Download CV PDF
             </a>
         </div>
 
@@ -308,7 +335,7 @@
         </div>
 
         <div class="card area-contact">
-            <span class="section-tag" style="text-align: center;">Coordinates</span>
+            <span class="section-tag" style="text-align: center;"><i class="fas fa-satellite-dish"></i> Coordinates</span>
             <a href="#" class="contact-link">
                 <i class="fas fa-map-marker-alt"></i> Hay Andalous K1, Oujda, Morocco
             </a>
@@ -324,14 +351,14 @@
         </div>
 
         <div class="card area-skills">
-            <span class="section-tag" style="width: 100%;">Technical Arsenal</span>
+            <span class="section-tag" style="width: 100%;"><i class="fas fa-tools"></i> Technical Arsenal</span>
             <span class="skill-pill">ArcGIS Pro</span>
             <span class="skill-pill">QGIS</span>
             <span class="skill-pill">MapInfo</span>
             <span class="skill-pill">ERDAS Imagine</span>
             <span class="skill-pill">ENVI</span>
-            <span class="skill-pill">Python (Automation)</span>
-            <span class="skill-pill">Google Earth Engine (GEE)</span>
+            <span class="skill-pill"><i class="fab fa-python"></i> Python (Automation)</span>
+            <span class="skill-pill"><i class="fas fa-globe"></i> Google Earth Engine (GEE)</span>
             <span class="skill-pill">HTML/CSS</span>
             <span class="skill-pill">Web Mapping</span>
             <span class="skill-pill">SPSS</span>
@@ -345,14 +372,14 @@
         </div>
 
         <div class="card area-projects">
-            <span class="section-tag">Geospatial Development & WebGIS Portfolio</span>
-            <p style="margin-bottom: 1rem; color: #666;">Active development of open-source tools for remote sensing and topographic analysis.</p>
+            <span class="section-tag"><i class="fas fa-laptop-code"></i> Geospatial Development & WebGIS Portfolio</span>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">Active development of open-source tools for remote sensing and topographic analysis.</p>
             
             <div class="projects-scroll">
                 
                 <div class="project-item">
                     <div class="project-title">1. Web-Based Spectral Indices Platform</div>
-                    <div style="font-size: 0.9rem; color: #ccc;">(indice_web_Site)</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">(indice_web_Site)</div>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Developed a responsive web interface to calculate and visualize advanced spectral indices for remote sensing applications.</p>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Custom Indices Developed: Created and deployed code for specialized indices including MSI, NDVIre, PRI-RE, and Composite-Index models.</p>
                     <div class="tech-stack">HTML, CSS, JavaScript integration.</div>
@@ -360,7 +387,7 @@
 
                 <div class="project-item">
                     <div class="project-title">2. Topographic Analysis Suite</div>
-                    <div style="font-size: 0.9rem; color: #ccc;">(AASTopo & topoPro)</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">(AASTopo & topoPro)</div>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Built web-based toolkits designed to automate the analysis of topographic data.</p>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Key Features: Automated extraction of terrain features, slope analysis, and geomorphological data processing.</p>
                     <div class="tech-stack">High development activity: +79 commits in Dec 2025.</div>
@@ -368,30 +395,30 @@
 
                 <div class="project-item">
                     <div class="project-title">3. Erosion Modeling & Analysis</div>
-                    <div style="font-size: 0.9rem; color: #ccc;">(erosion-app & My-Geo-App)</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">(erosion-app & My-Geo-App)</div>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Python-based applications designed to support the calculation of soil loss and erosion risk modeling (aligned with PhD research).</p>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Functionality: Automates data inputs for erosion models (likely RUSLE) to streamline the assessment of water erosion in the Moulouya basin.</p>
-                    <div class="tech-stack">Python, Geoprocessing libraries.</div>
+                    <div class="tech-stack"><i class="fab fa-python"></i> Python, Geoprocessing libraries.</div>
                 </div>
 
                 <div class="project-item">
                     <div class="project-title">4. Climate Analysis Tools</div>
-                    <div style="font-size: 0.9rem; color: #ccc;">(Spi-code)</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">(Spi-code)</div>
                     <p style="font-size: 0.85rem; margin-top:0.5rem;">Scripting for the calculation of the Standardized Precipitation Index (SPI) to monitor drought and climatic variations over time.</p>
-                    <div class="tech-stack">Google Earth Engine Scripting</div>
+                    <div class="tech-stack"><i class="fas fa-code"></i> Google Earth Engine Scripting</div>
                 </div>
 
             </div>
         </div>
 
         <div class="card area-edu">
-            <span class="section-tag">Academic Timeline</span>
+            <span class="section-tag"><i class="fas fa-graduation-cap"></i> Academic Timeline</span>
             
             <div class="timeline-item">
                 <span class="timeline-date">2023 - Present</span>
                 <h3>PhD in Geography (In Progress)</h3>
                 <p>Mohammed First University, Oujda.</p>
-                <p style="font-size: 0.9rem; color: #888;">Thesis Topic: Water Erosion (L'érosion hydrique).</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Thesis Topic: Water Erosion (L'érosion hydrique).</p>
             </div>
 
             <div class="timeline-item">
@@ -408,7 +435,7 @@
         </div>
 
         <div class="card area-exp">
-            <span class="section-tag">Professional Trajectory</span>
+            <span class="section-tag"><i class="fas fa-briefcase"></i> Professional Trajectory</span>
 
             <div class="timeline-item">
                 <span class="timeline-date">Sep 2024</span>
